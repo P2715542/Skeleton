@@ -4,7 +4,6 @@ namespace ClassLibrary
 {
     public class clsSofa
     {
-        public bool Active { get; set; }
         public int SofaId { get; set; }
         public int SupplierId { get; set; }
         public DateTime DateAdded { get; set; }
