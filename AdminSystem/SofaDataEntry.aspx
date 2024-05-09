@@ -24,7 +24,8 @@
         <p>
             <asp:TextBox ID="txtSofaColour" runat="server" OnTextChanged="TextBox3_TextChanged" style="z-index: 1; left: 128px; top: 165px; position: absolute; width: 304px; height: 25px; margin-bottom: 0px"></asp:TextBox>
         </p>
-        <asp:Label ID="lblSupplierId" runat="server" style="z-index: 1; left: 14px; top: 216px; position: absolute; margin-bottom: 0px" Text="Supplier ID" width="97px"></asp:Label>
+        <asp:Label ID="lblSupplierId" runat="server" style="z-index: 1; left: 14px; top: 217px; position: absolute; margin-bottom: 0px" Text="Supplier ID" width="97px"></asp:Label>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click1" style="z-index: 1; left: 536px; top: 111px; position: absolute" Text="Find" />
         <p>
             &nbsp;</p>
         <asp:TextBox ID="txtSupplierId" runat="server" style="z-index: 1; left: 128px; top: 213px; position: absolute; width: 304px; height: 25px"></asp:TextBox>

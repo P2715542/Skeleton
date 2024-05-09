@@ -9,14 +9,25 @@ namespace ClassLibrary
 
         public bool Find(int sofaId)
         {
-            mSofaId = 1;
-            mSofaDescription = "Big";
-            mSofaColour = "Blue";
-            mSupplierId = 1;
-            mPrice = 233;
-            mAvailable = true;
-            mDateAdded = Convert.ToDateTime("13/09/2023");
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SofaId", sofaId);
+            DB.Execute("sproc_tblSofa_FilterBySofaId");
+            if (DB.Count == 1)
+            {
+                mSofaId = Convert.ToInt32(DB.DataTable.Rows[0]["SofaId"]);
+                mSofaDescription = Convert.ToString(DB.DataTable.Rows[0]["SofaDescription"]);
+                mSofaColour = Convert.ToString(DB.DataTable.Rows[0]["SofaColour"]);
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
+                mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+     
         }
         private Int32 mSofaId;
         private string mSofaDescription;

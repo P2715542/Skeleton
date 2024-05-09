@@ -29,9 +29,9 @@ namespace TestingSofa
             clsSofa ASofa = new clsSofa();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SofaId = 1;
+            Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.SofaId != 1)
+            if (ASofa.SofaId != 3)
             {
                 OK = false;
             }
@@ -44,9 +44,9 @@ namespace TestingSofa
             clsSofa ASofa = new clsSofa();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SofaId = 1;
+            Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.SofaDescription != "Big")
+            if (ASofa.SofaDescription != "Sofa3")
             {
                 OK = false;
             }
@@ -58,9 +58,9 @@ namespace TestingSofa
             clsSofa ASofa = new clsSofa();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SofaId = 1;
+            Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.Colour != "Blue")
+            if (ASofa.Colour != "Red")
             {
                 OK = false;
             }
@@ -73,9 +73,9 @@ namespace TestingSofa
             clsSofa ASofa = new clsSofa();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SofaId = 1;
+            Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.SupplierId != 1)
+            if (ASofa.SupplierId != 3)
             {
                 OK = false;
             }
@@ -88,9 +88,9 @@ namespace TestingSofa
             clsSofa ASofa = new clsSofa();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SofaId = 1;
+            Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.Price != 233)
+            if (ASofa.Price != 554)
             {
                 OK = false;
             }
@@ -103,9 +103,9 @@ namespace TestingSofa
             clsSofa ASofa = new clsSofa();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SofaId = 1;
+            Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.Available != true)
+            if (ASofa.Available != false)
             {
                 OK = false;
             }
@@ -118,9 +118,9 @@ namespace TestingSofa
             clsSofa ASofa = new clsSofa();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SofaId = 1;
+            Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.DateAdded != Convert.ToDateTime("13/09/2023"))
+            if (ASofa.DateAdded != Convert.ToDateTime("14/07/2023"))
             {
                 OK = false;
             }
