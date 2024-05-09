@@ -24,6 +24,7 @@
         <asp:Label ID="lblLastName" runat="server" style="z-index: 1; left: 14px; top: 98px; position: absolute; right: 1265px;" Text="Last Name" height="19px" width="92px"></asp:Label>
         <div style="margin-left: 40px">
             <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; left: 107px; top: 98px; position: absolute; width: 128px;" height="22px"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 312px; top: 36px; position: absolute; height: 30px" Text="Find" />
         </div>
         <asp:Label ID="lblEmail" runat="server" style="z-index: 1; left: 16px; top: 134px; position: absolute" Text="Email" height="19px" width="92px"></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server" style="z-index: 1; left: 115px; top: 134px; position: absolute" height="22px" width="128px"></asp:TextBox>
