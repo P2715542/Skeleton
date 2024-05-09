@@ -38,4 +38,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["ASofa"] = ASofa;
         Response.Redirect("SofaViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnFind_Click1(object sender, EventArgs e)
+    {
+        clsSofa ASofa = new clsSofa();
+        Int32 SofaId;
+        Boolean Found = false;
+        SofaId = Convert.ToInt32(txtSofaId.Text);
+        Found = ASofa.Find(SofaId);
+        if (Found == true)
+        {
+            txtSofaDescription.Text = ASofa.SofaDescription;
+            txtSofaColour.Text = ASofa.Colour;
+            txtSupplierId.Text = ASofa.SupplierId.ToString();
+            txtPrice.Text = ASofa.Price.ToString();
+            chkAvailable.Checked = ASofa.Available;
+            txtDateAdded.Text = ASofa.DateAdded.ToString();
+        }
+    }
 }
