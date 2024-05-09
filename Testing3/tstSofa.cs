@@ -14,6 +14,119 @@ namespace TestingSofa
             Assert.IsNotNull(ASofa);
         }
         [TestMethod]
+        public void FindMethodOK()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestSofaIdFound()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            if (ASofa.SofaId != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK); 
+        }
+
+        [TestMethod]
+        public void TestSofaDescriptionFound()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            if (ASofa.SofaDescription != "Big")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestSofaColourFound()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            if (ASofa.Colour != "Blue")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSupplierIdFound()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            if (ASofa.SupplierId != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPriceFound()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            if (ASofa.Price != 233)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAvailableFound()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            if (ASofa.Available != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            clsSofa ASofa = new clsSofa();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SofaId = 1;
+            Found = ASofa.Find(SofaId);
+            if (ASofa.DateAdded != Convert.ToDateTime("13/09/2023"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
         public void SofaIdPropertyOK()
         {
             clsSofa ASofa = new clsSofa();
