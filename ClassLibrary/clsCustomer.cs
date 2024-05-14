@@ -148,5 +148,99 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth)
+        {
+            //create a string variable to store the error
+            String Error = "";
+
+            //create a temporary variable to store the data values
+            DateTime DateTemp;
+
+
+            //if the firstName is blank
+            if (firstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The first name may not be blank : ";
+            }
+            //if the first name is greater than 50 characters
+            if (firstName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 50 characters : ";
+            }
+
+
+            //is the last name blank
+            if (lastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The last name may not be blank : ";
+            }
+            //if the last name is too long
+            if (lastName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The last name must be less than 50 characters : ";
+            }
+
+
+            //if the email is blank
+            if (email.Length == 0)
+            {
+                //record the error
+                Error = Error + "The email may not be blank : ";
+            }
+            //if the email is greater than 100 characters
+            if (email.Length > 100)
+            {
+                //record the error
+                Error = Error + "The email must be less than 100 characters : ";
+            }
+
+
+            //if the phoneNumber is blank
+            if (phoneNumber.Length == 0)
+            {
+                //record the error
+                Error = Error + "The phone number may not be blank : ";
+            }
+            //if the phone number is greater than 15 characters
+            if (phoneNumber.Length > 15)
+            {
+                //record the error
+                Error = Error + "The phone number must be less than 15 numbers : ";
+            }
+
+
+            DateTime DateComp = DateTime.Now.Date;
+            try
+            {
+                //copy the dateOfBirth value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+
+                if (DateTemp < DateComp) //compare dateOfBirth with Date
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future: ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateComp)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date: ";
+            }
+
+
+            //return any error messages
+            return Error;
+        }
     }
 }
