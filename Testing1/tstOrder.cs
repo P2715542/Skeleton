@@ -7,6 +7,14 @@ namespace Testing1
     [TestClass]
     public class tstOrder
     {
+        // good test data
+        //create some test data to pass the method
+        string OrderName = "Order One";
+        string SofaId = "1";
+        string CustomerId = "1";
+        string StaffId = "1";
+        string DateOrdered = DateTime.Now.ToShortDateString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -276,5 +284,339 @@ namespace Testing1
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            // create class instance
+            clsOrder AnOrder = new clsOrder();
+            // string variable to store error message
+            string Error = "";
+            // invoke method
+            Error = AnOrder.Valid(OrderName,SofaId,CustomerId,StaffId,DateOrdered);
+            // test to see if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNameMinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNameMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "a";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNameMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "aa";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNameMaxLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "";
+            OrderName = OrderName.PadRight(49, 'a');
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderNameMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "";
+            OrderName = OrderName.PadRight(50, 'a');
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNameMaxPlus()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "";
+            OrderName = OrderName.PadRight(51, 'a');
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNameMid()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "";
+            OrderName = OrderName.PadRight(25, 'a');
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderNameExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string OrderName = "";
+            OrderName = OrderName.PadRight(1000, 'a');
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOrderedExtremeMin()
+        {
+            // create class instance
+            clsOrder AnOrder = new clsOrder();
+            // create error variable
+            String Error = "";
+            // create date variable
+            DateTime TestDate;
+            // set variable to today's date
+            TestDate = DateTime.Now.Date;
+            // change date to date 100 years ago
+            TestDate = TestDate.AddYears(-100);
+            // change date to string
+            string DateOrdered = TestDate.ToString();
+            // invoke method
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            // test if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOrderedMinMinusOne()
+        {
+            // create class instance
+            clsOrder AnOrder = new clsOrder();
+            // create error variable
+            String Error = "";
+            // create date variable
+            DateTime TestDate;
+            // set variable to today's date
+            TestDate = DateTime.Now.Date;
+            // change date to date yesterday
+            TestDate = TestDate.AddDays(-1);
+            // change date to string
+            string DateOrdered = TestDate.ToString();
+            // invoke method
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            // test if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOrderedMin()
+        {
+            // create class instance
+            clsOrder AnOrder = new clsOrder();
+            // create error variable
+            String Error = "";
+            // create date variable
+            DateTime TestDate;
+            // set variable to today's date
+            TestDate = DateTime.Now.Date;
+            // change date to string
+            string DateOrdered = TestDate.ToString();
+            // invoke method
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            // test if result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOrderedMinPlusOne()
+        {
+            // create class instance
+            clsOrder AnOrder = new clsOrder();
+            // create error variable
+            String Error = "";
+            // create date variable
+            DateTime TestDate;
+            // set variable to today's date
+            TestDate = DateTime.Now.Date;
+            // change date to date tomorrow
+            TestDate = TestDate.AddDays(1);
+            // change date to string
+            string DateOrdered = TestDate.ToString();
+            // invoke method
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            // test if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOrderedExtremeMax()
+        {
+            // create class instance
+            clsOrder AnOrder = new clsOrder();
+            // create error variable
+            String Error = "";
+            // create date variable
+            DateTime TestDate;
+            // set variable to today's date
+            TestDate = DateTime.Now.Date;
+            // change date to date yesterday
+            TestDate = TestDate.AddYears(100);
+            // change date to string
+            string DateOrdered = TestDate.ToString();
+            // invoke method
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            // test if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOrderedInvalidData()
+        {
+            // create class instance
+            clsOrder AnOrder = new clsOrder();
+            // create error variable
+            String Error = "";
+            // set dateOrdered value to non date
+            string DateOrdered = "fred";
+            // invoke method
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            // test if result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SofaIdMinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string SofaId = "";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SofaIdMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string SofaId = "1";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SofaIdMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string SofaId = "2";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SofaIdInvalidData()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string SofaId = "fred";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIdMinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string CustomerId = "";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIdMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string CustomerId = "1";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIdMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string CustomerId = "2";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIdInvalidData()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string CustomerId = "fred";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffIdMinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string StaffId = "";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffIdMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string StaffId = "1";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffIdMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string StaffId = "2";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffIdInvalidData()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string StaffId = "fred";
+            Error = AnOrder.Valid(OrderName, SofaId, CustomerId, StaffId, DateOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }

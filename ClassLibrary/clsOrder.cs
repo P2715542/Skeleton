@@ -137,5 +137,92 @@ namespace ClassLibrary
                 mOrderDispatched = value;
             }
         }
+
+        public string Valid(string OrderName, string SofaId, string CustomerId, string StaffId, string dateOrdered)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the HouseNo is blank
+            if (OrderName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The order name may not be blank : ";
+            }
+            //if the house no is greater than 6 characters
+            if (OrderName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The order name must be less than 6 characters : ";
+            }
+            //copy the dateAdded value to the DateTemp variable
+            DateTime DateComp = DateTime.Now.Date;
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateOrdered);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
+            // try catch for if the data type isn't an integer
+            try
+            {
+                // if sofa id is zero
+                if (Convert.ToInt32(SofaId) == 0)
+                {
+                    //record the error
+                    Error = Error + "The sofa id may not be blank : ";
+                }
+            }catch
+            {
+                Error = Error + "The sofa id was not an integer : ";
+
+            }
+            // try catch for if the data type isn't an integer
+            try
+            {
+                // if customer id is zero
+                if (Convert.ToInt32(CustomerId) == 0)
+                {
+                    //record the error
+                    Error = Error + "The customer id may not be blank : ";
+                }
+            }catch
+            {
+                Error = Error + "The customer id was not an integer : ";
+
+            }
+            // try catch for if the data type isn't an integer
+            try
+            {
+                // if staff id is zero
+                if (Convert.ToInt32(StaffId) == 0)
+                {
+                    //record the error
+                    Error = Error + "The staff id may not be blank : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The staff id was not an integer : ";
+
+            }
+
+            //return any error messages
+            return Error;
+        }
     }
 }
