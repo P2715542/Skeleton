@@ -21,22 +21,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsSofa ASofa = new clsSofa();
-        ASofa.Colour = txtSofaColour.Text;
-
-        ASofa.SofaId = Convert.ToInt32(txtSofaId.Text);
-
-        ASofa.SofaDescription = txtSofaDescription.Text;
-
-        ASofa.SupplierId = Convert.ToInt32(txtSupplierId.Text);
-
-        ASofa.Price = Convert.ToDecimal(txtPrice.Text);
-
-        ASofa.Available = chkAvailable.Checked;
-
-        ASofa.DateAdded = Convert.ToDateTime(DateTime.Now);
-
-        Session["ASofa"] = ASofa;
-        Response.Redirect("SofaViewer.aspx");
+        string SofaDescription = txtSofaDescription.Text;
+        string SofaColour = txtSofaColour.Text;
+        string SupplierId = txtSupplierId.Text;
+        string Price = txtPrice.Text;
+        string Available = chkAvailable.Text;
+        string DateAdded = txtDateAdded.Text;
+        string Error = "";
+        Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
+        if (Error == "")
+        {
+            ASofa.SofaDescription = SofaDescription;
+            ASofa.Colour = SofaColour;
+            ASofa.SupplierId = Convert.ToInt32(SupplierId);
+            ASofa.Price = Convert.ToDecimal(Price);
+            ASofa.DateAdded = Convert.ToDateTime(DateAdded);
+            Session["ASofa"] = ASofa;
+            Response.Redirect("SofaViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+        
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

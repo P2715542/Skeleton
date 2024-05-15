@@ -42,11 +42,11 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 96px; top: 467px; position: absolute; margin-bottom: 80px" Text="Cancel" />
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 19px; top: 425px; position: absolute; height: 20px; width: 97px; right: 487px"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 19px; top: 425px; position: absolute; height: 20px; width: 986px; right: 31px"></asp:Label>
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 245px; top: 455px; position: absolute; margin-bottom: 80px" Text="Cancel" />
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 159px; top: 456px; position: absolute; width: 58px" Text="OK" />
         </p>
         <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 135px; top: 382px; position: absolute" Text="Available" />
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 15px; top: 467px; position: absolute; width: 58px" Text="OK" />
         <p>
             &nbsp;</p>
     </form>
