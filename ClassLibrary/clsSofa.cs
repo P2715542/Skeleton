@@ -135,14 +135,38 @@ namespace ClassLibrary
                 Error = Error + "The sofa description must be less than 50 characters";
             }
 
-            if (Convert.ToInt32(supplierId) < 1)
+            try
             {
-                Error = Error + "The supplier id is not long enough : ";
-            }
+                if (Convert.ToInt32(supplierId) < 1)
+                {
+                    Error = Error +  "The supplier id is not long enough : ";
+                }
 
-            if (Convert.ToInt32(price) < 1)
+                if (Convert.ToInt32(supplierId) > 2147483647)
+                {
+                    Error = Error + "The supplier id is too long : ";
+                }
+            }
+            catch
             {
-                Error = Error + "The price is nit high enough : ";
+                Error = Error + "This supplier id is not valid : ";
+            }
+           
+            try
+            {
+                if (Convert.ToDecimal(price) < 0)
+                {
+                    Error = Error + "The price is not high enough : ";
+                }
+
+                if (Convert.ToDecimal(price) > 10000)
+                {
+                    Error = Error + "The price is too high : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The price is not a valid price : ";
             }
 
             if (sofaColour.Length == 0)
@@ -154,7 +178,6 @@ namespace ClassLibrary
             {
                 Error = Error + "The sofa colour must be less than 50 characters";
             }
-
 
             try
             {

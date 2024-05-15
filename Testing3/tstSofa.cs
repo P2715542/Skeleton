@@ -208,7 +208,7 @@ namespace TestingSofa
         {
             clsSofa ASofa = new clsSofa();
             string Error = "";
-            string SupplierId = Convert.ToString(01);
+            string SupplierId = Convert.ToString(1);
             Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
             Assert.AreEqual(Error, "");
         }
@@ -218,9 +218,39 @@ namespace TestingSofa
         {
             clsSofa ASofa = new clsSofa();
             string Error = "";
-            string SupplierId = Convert.ToString(02);
+            string SupplierId = Convert.ToString(2);
             Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierMaxLessOne()
+        {
+            clsSofa ASofa = new clsSofa();
+            string Error = "";
+            string SupplierId = Convert.ToString(2147483646);
+            Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierIdMax()
+        {
+            clsSofa ASofa = new clsSofa();
+            string Error = "";
+            string SupplierId = Convert.ToString(2147483647);
+            Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierIdMaxPlusOne()
+        {
+            clsSofa ASofa = new clsSofa();
+            string Error = "";
+            string SupplierId = Convert.ToString(2147483648);
+            Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -228,7 +258,7 @@ namespace TestingSofa
         {
             clsSofa ASofa = new clsSofa();
             string Error = "";
-            string Price = Convert.ToString(0);
+            string Price = Convert.ToString(-1.00);
             Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
@@ -238,7 +268,7 @@ namespace TestingSofa
         {
             clsSofa ASofa = new clsSofa();
             string Error = "";
-            string Price = Convert.ToString(1);
+            string Price = Convert.ToString(0.00);
             Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
             Assert.AreEqual(Error, "");
         }
@@ -248,9 +278,39 @@ namespace TestingSofa
         {
             clsSofa ASofa = new clsSofa();
             string Error = "";
-            string Price = Convert.ToString(2);
+            string Price = Convert.ToString(1.00);
             Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMaxLessOne()
+        {
+            clsSofa ASofa = new clsSofa();
+            string Error = "";
+            string Price = Convert.ToString(9998.99);
+            Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMax()
+        {
+            clsSofa ASofa = new clsSofa();
+            string Error = "";
+            string Price = Convert.ToString(9999.99);
+            Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMaxPlusOne()
+        {
+            clsSofa ASofa = new clsSofa();
+            string Error = "";
+            string Price = Convert.ToString(10000.99);
+            Error = ASofa.Valid(SofaDescription, SofaColour, SupplierId, Price, DateAdded);
+            Assert.AreNotEqual(Error, "");
         }
 
 
