@@ -27,6 +27,7 @@ namespace Testing2
             Assert.IsNotNull(AnCustomer);
         }
 
+
         /******************PROPERTY OK TESTS******************/
         [TestMethod]
         public void ActivePropertyOK()
@@ -119,6 +120,7 @@ namespace Testing2
             Assert.AreEqual(AnCustomer.CustomerID, TestData);
         }
 
+
         /******************FIND METHOD TEST******************/
         [TestMethod]
         public void FindMethodOK()
@@ -134,6 +136,7 @@ namespace Testing2
             //test to see if the result is true
             Assert.IsTrue(Found);
         }
+
 
         /******************PROPERTY DATA TESTS******************/
         [TestMethod]
@@ -260,7 +263,7 @@ namespace Testing2
             //invoke the method
             Found = AnCustomer.Find(CustomerID);
             //check the DateOfBirth property
-            if (AnCustomer.DateOfBirth != Convert.ToDateTime("09/05/2024"))
+            if (AnCustomer.DateOfBirth != Convert.ToDateTime("09/05/2000"))
             {
                 OK = false;
             }
@@ -315,7 +318,7 @@ namespace Testing2
             //this should fail
             string FirstName = "";
             //invoke the method
-            Error = AnCustomer.Valid(FirstName, FirstName, Email, PhoneNumber, DateOfBirth);
+            Error = AnCustomer.Valid(FirstName, LastName, Email, PhoneNumber, DateOfBirth);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -567,7 +570,7 @@ namespace Testing2
             //this should fail
             string Email = "";
             //invoke the method
-            Error = AnCustomer.Valid(FirstName, FirstName, Email, PhoneNumber, DateOfBirth);
+            Error = AnCustomer.Valid(FirstName, LastName, Email, PhoneNumber, DateOfBirth);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -693,7 +696,7 @@ namespace Testing2
             //this should fail
             string PhoneNumber = "";
             //invoke the method
-            Error = AnCustomer.Valid(FirstName, FirstName, Email, PhoneNumber, DateOfBirth);
+            Error = AnCustomer.Valid(FirstName, LastName, Email, PhoneNumber, DateOfBirth);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -815,13 +818,13 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //string variables to store any error message
-            string Error = "";
+            String Error = "";
             //create a variable to store the test date data
             DateTime TestDate;
             //set the data to todays date
             TestDate = DateTime.Now.Date;
-            //change the data to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(-100);
+            //change the data to whatever the date is less 200 years
+            TestDate = TestDate.AddYears(-200);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
             //invoke the method
@@ -836,11 +839,11 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //string variables to store any error message
-            string Error = "";
+            String Error = "";
             //create a variable to store the test date data
             DateTime TestDate;
             //set the data to todays date
-            TestDate = DateTime.Now.Date;
+            TestDate = DateTime.Now.Date.AddYears(-18);
             //change the data to whatever the date is less 100 years
             TestDate = TestDate.AddDays(-1);
             //convert the date variable to a string variable
@@ -857,11 +860,13 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //string variables to store any error message
-            string Error = "";
+            String Error = "";
             //create a variable to store the test date data
             DateTime TestDate;
-            //set the data to todays date
+            //set the data to today's date
             TestDate = DateTime.Now.Date;
+            //change the data to whatever the date is less 100 years
+            //TestDate = TestDate.AddYears(-18);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
             //invoke the method
@@ -876,13 +881,13 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //string variables to store any error message
-            string Error = "";
+            String Error = "";
             //create a variable to store the test date data
             DateTime TestDate;
             //set the data to todays date
-            TestDate = DateTime.Now.Date;
+            TestDate = DateTime.Now.Date.AddYears(-18);
             //change the date to whatever the date is plus 1 day
-            TestDate = TestDate.AddDays(1);
+            TestDate = TestDate.AddDays(+1);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
             //invoke the method
@@ -897,7 +902,7 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //string variables to store any error message
-            string Error = "";
+            String Error = "";
             //create a variable to store the test date data
             DateTime TestDate;
             //set the data to todays date
@@ -918,7 +923,7 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
             //string variables to store any error message
-            string Error = "";
+            String Error = "";
             //set the DateOfBirth to a non date value
             string DateOfBirth = "this is not a date!";
             //invoke the method
