@@ -27,7 +27,7 @@
         <asp:TextBox ID="txtStaffId" runat="server" height="19px" style="z-index: 1; left: 155px; top: 208px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtDateOrdered" runat="server" height="19px" style="z-index: 1; left: 155px; top: 247px; position: absolute"></asp:TextBox>
         <asp:CheckBox ID="chkOrderDispatched" runat="server" height="19px" style="z-index: 1; left: 155px; top: 296px; position: absolute" Text="Order Dispatched" />
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 44px; top: 332px; position: absolute; margin-top: 0px" width="85px"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 44px; top: 332px; position: absolute; margin-top: 0px; width: 731px;"></asp:Label>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 44px; top: 369px; position: absolute" Text="OK" width="60px" />
         <p>
             <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 155px; top: 368px; position: absolute" Text="Cancel" />

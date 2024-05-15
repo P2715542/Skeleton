@@ -150,11 +150,11 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The order name may not be blank : ";
             }
-            //if the house no is greater than 6 characters
+            //if the house no is greater than 50 characters
             if (OrderName.Length > 50)
             {
                 //record the error
-                Error = Error + "The order name must be less than 6 characters : ";
+                Error = Error + "The order name must be less than 50 characters : ";
             }
             //copy the dateAdded value to the DateTemp variable
             DateTime DateComp = DateTime.Now.Date;
@@ -180,13 +180,20 @@ namespace ClassLibrary
             // try catch for if the data type isn't an integer
             try
             {
-                // if sofa id is zero
-                if (Convert.ToInt32(SofaId) == 0)
+                // if sofa id is less than one
+                if (Convert.ToInt32(SofaId) < 1)
                 {
                     //record the error
-                    Error = Error + "The sofa id may not be blank : ";
+                    Error = Error + "The sofa id may not be less than one : ";
                 }
-            }catch
+                // if sofa id is greater than max integer value
+                if (Convert.ToInt32(SofaId) > 2147483647)
+                {
+                    //record the error
+                    Error = Error + "The sofa id may not be greater than 2,147,483,647 : ";
+                }
+            }
+            catch
             {
                 Error = Error + "The sofa id was not an integer : ";
 
@@ -194,13 +201,20 @@ namespace ClassLibrary
             // try catch for if the data type isn't an integer
             try
             {
-                // if customer id is zero
-                if (Convert.ToInt32(CustomerId) == 0)
+                // if customer id is less than one
+                if (Convert.ToInt32(CustomerId) < 1)
                 {
                     //record the error
-                    Error = Error + "The customer id may not be blank : ";
+                    Error = Error + "The customer id may not be less than one : ";
                 }
-            }catch
+                // if customer id is greater than max integer value
+                if (Convert.ToInt32(CustomerId) > 2147483647)
+                {
+                    //record the error
+                    Error = Error + "The customer id may not be greater than 2,147,483,647 : ";
+                }
+            }
+            catch
             {
                 Error = Error + "The customer id was not an integer : ";
 
@@ -208,11 +222,17 @@ namespace ClassLibrary
             // try catch for if the data type isn't an integer
             try
             {
-                // if staff id is zero
-                if (Convert.ToInt32(StaffId) == 0)
+                // if staff id is less than one
+                if (Convert.ToInt32(StaffId) < 1)
                 {
                     //record the error
-                    Error = Error + "The staff id may not be blank : ";
+                    Error = Error + "The customer id may not be less than one : ";
+                }
+                // if staff id is greater than max integer value
+                if (Convert.ToInt32(StaffId) > 2147483647)
+                {
+                    //record the error
+                    Error = Error + "The customer id may not be greater than 2,147,483,647 : ";
                 }
             }
             catch
