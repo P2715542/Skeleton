@@ -16,18 +16,44 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
-        //capture the customer id
-        AnCustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        AnCustomer.FirstName = txtFirstName.Text;
-        AnCustomer.LastName = txtLastName.Text;
-        AnCustomer.Email = txtEmail.Text;
-        AnCustomer.PhoneNumber = txtPhoneNumber.Text;
-        AnCustomer.DateOfBirth = Convert.ToDateTime(DateTime.Now);
-        AnCustomer.Active = true;
-        //stores the customer in the session object
-        Session["AnCustomer"] = AnCustomer;
-        //navigate to the view page
-        Response.Redirect("CustomerViewer.aspx");
+        //capture the first name
+        string FirstName = txtFirstName.Text;
+        //capture the last name
+        string LastName = txtLastName.Text;
+        //capture the email
+        string Email = txtEmail.Text;
+        //capture the phone number
+        string PhoneNumber = txtPhoneNumber.Text;
+        //capture the date of birth
+        string DateOfBirth = txtDateOfBirth.Text;
+        //capture the active check box
+        string Active = chkActive.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnCustomer.Valid(FirstName, LastName, Email, PhoneNumber, DateOfBirth);
+        if (Error == "")
+        {
+            //capture the first name
+            AnCustomer.FirstName = FirstName;
+            //capture the last name
+            AnCustomer.LastName = LastName;
+            //capture the email
+            AnCustomer.Email = Email;
+            //capture the phone number
+            AnCustomer.PhoneNumber = PhoneNumber;
+            //capture the date of birth
+            AnCustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            //store the customer in the session object
+            Session["AnCustomer"] = AnCustomer;
+            //navigate to the view page
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)

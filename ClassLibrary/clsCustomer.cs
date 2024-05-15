@@ -223,7 +223,7 @@ namespace ClassLibrary
                 if (DateTemp < DateComp) //compare dateOfBirth with Date
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the future: ";
+                    Error = Error + "The date cannot be in the past: ";
                 }
                 //check to see if the date is greater than today's date
                 if (DateTemp > DateComp)
