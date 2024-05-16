@@ -412,7 +412,7 @@ namespace TestingSofa
             Boolean OK = true;
             Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.SofaDescription != "Sofa3")
+            if (ASofa.SofaDescription != "Wide")
             {
                 OK = false;
             }
