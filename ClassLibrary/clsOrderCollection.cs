@@ -37,30 +37,35 @@ namespace ClassLibrary
         // constructor for class
         public clsOrderCollection() 
         {
-            // create the items of test data
-            clsOrder TestItem = new clsOrder();
-            //set its properties
-            TestItem.OrderId = 1;
-            TestItem.OrderName = "Order One";
-            TestItem.SofaId = 1;
-            TestItem.CustomerId = 1;
-            TestItem.StaffId = 1;
-            TestItem.DateOrdered = DateTime.Now;
-            TestItem.OrderDispatched = false;
-            // add the test item to test list
-            mOrderList.Add(TestItem);
-            // re initialise the object for new data
-            TestItem = new clsOrder();
-            // set its properties
-            TestItem.OrderId = 2;
-            TestItem.OrderName = "Order Two";
-            TestItem.SofaId = 2;
-            TestItem.CustomerId = 2;
-            TestItem.StaffId = 2;
-            TestItem.DateOrdered = DateTime.Now;
-            TestItem.OrderDispatched = false;
-            // add the item to the test list
-            mOrderList.Add(TestItem);
+            //variable for the index
+            Int32 Index = 0;
+            // variable for record count
+            Int32 RecordCount = 0;
+            // object for the data connect
+            clsDataConnection DB = new clsDataConnection();
+            // execute stored procedure
+            DB.Execute("sproc_tblOrder_SelectAll");
+            // get count of records
+            RecordCount = DB.Count;
+            // while there are records to process
+            while (Index < RecordCount)
+            {
+                // create a blank order
+                clsOrder AnOrder = new clsOrder();
+                // read in the fields for the current record
+                AnOrder.OrderId = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderId"]);
+                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
+                AnOrder.SofaId = Convert.ToInt32(DB.DataTable.Rows[Index]["SofaId"]);
+                AnOrder.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                AnOrder.StaffId = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffId"]);
+                AnOrder.DateOrdered = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOrdered"]);
+                AnOrder.OrderDispatched = Convert.ToBoolean(DB.DataTable.Rows[Index]["OrderDispatched"]);
+                // add record to private data member
+                mOrderList.Add(AnOrder);
+                // point at next record
+                Index++;
+            }
+
         }
     }
 }
