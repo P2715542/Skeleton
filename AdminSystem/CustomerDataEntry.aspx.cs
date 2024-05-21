@@ -8,10 +8,39 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the customer to be processed
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        if (IsPostBack == false)
+        {
+            //if this is the not a new record 
+            if (CustomerID != -1)
+            {
+                //display the current data for the record
+                DisplayCustomers();
+            }
+        }
     }
+
+    void DisplayCustomers()
+    {
+        //create an instance of the customer
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        //find the record to update
+        Customers.ThisCustomer.Find(CustomerID);
+        //display the data for the record
+        txtCustomerID.Text = Customers.ThisCustomer.CustomerID.ToString();
+        txtFirstName.Text = Customers.ThisCustomer.FirstName.ToString();
+        txtLastName.Text = Customers.ThisCustomer.LastName.ToString();
+        txtEmail.Text = Customers.ThisCustomer.Email.ToString();
+        txtPhoneNumber.Text = Customers.ThisCustomer.PhoneNumber.ToString();
+        txtDateOfBirth.Text = Customers.ThisCustomer.DateOfBirth.ToString();
+        chkActive.Checked = Customers.ThisCustomer.Active;
+    }
+
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsCustomer
@@ -34,6 +63,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnCustomer.Valid(FirstName, LastName, Email, PhoneNumber, DateOfBirth);
         if (Error == "")
         {
+            //capture the customer id
+            AnCustomer.CustomerID = CustomerID;
             //capture the first name
             AnCustomer.FirstName = FirstName;
             //capture the last name
@@ -44,10 +75,31 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.PhoneNumber = PhoneNumber;
             //capture the date of birth
             AnCustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
-            //store the customer in the session object
-            Session["AnCustomer"] = AnCustomer;
-            //navigate to the view page
-            Response.Redirect("CustomerViewer.aspx");
+            //capture active
+            AnCustomer.Active = chkActive.Checked;
+            //create a new instance of the customer collection
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+
+            //if this is a new record i.e CustomerID = -1 then add the data
+            if (CustomerID == -1)
+            {
+                //set the ThisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //add the new record
+                CustomerList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                CustomerList.ThisCustomer.Find(CustomerID);
+                //set the ThisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //update the record
+                CustomerList.Update();
+            }
+            //redirect back to the list page
+            Response.Redirect("CustomerList.aspx");
         }
         else
         {
