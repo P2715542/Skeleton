@@ -75,5 +75,19 @@ namespace ClassLibrary
 
             return DB.Execute("sproc_tblSofa_Insert");
         }
+
+        public void Update()
+        { 
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SofaId", mThisSofa.SofaId);
+            DB.AddParameter("@SofaDescription", mThisSofa.SofaDescription);
+            DB.AddParameter("@SofaColour", mThisSofa.Colour);
+            DB.AddParameter("@SupplierId", mThisSofa.SupplierId);
+            DB.AddParameter("@Price", mThisSofa.Price);
+            DB.AddParameter("@Available", mThisSofa.Available);
+            DB.AddParameter("@DateAdded", mThisSofa.DateAdded);
+
+            DB.Execute("sproc_tblSofa_Update");
+        }
     }
 }
