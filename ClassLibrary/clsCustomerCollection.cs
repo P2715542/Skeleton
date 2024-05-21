@@ -7,6 +7,9 @@ namespace ClassLibrary
     {
         //private data member for the list
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
+        //private member data for thisCustomer
+        clsCustomer mThisCustomer = new clsCustomer();
+
         //public property for the customer list
         public List<clsCustomer> CustomerList
         {
@@ -36,7 +39,19 @@ namespace ClassLibrary
         }
 
 
-        public clsCustomer ThisCustomer { get; set; }
+        public clsCustomer ThisCustomer 
+        {
+            get 
+            {
+                //return the private data
+                return mThisCustomer;
+            } 
+            set
+            {
+                //set the private data
+                mThisCustomer = value;
+            } 
+        }
 
 
 
@@ -73,5 +88,38 @@ namespace ClassLibrary
             }
         }
 
+        public int Add()
+        {
+            //adds a record to the database based on the values of mThisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@LastName", mThisCustomer.LastName);
+            DB.AddParameter("@Email", mThisCustomer.Email);
+            DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
+            DB.AddParameter("@DateOfBirth", mThisCustomer.DateOfBirth);
+            DB.AddParameter("@Active", mThisCustomer.Active);
+
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblCustomer_Insert");
+        }
+
+        public void Update()
+        {
+            //updates an exisiting record based on the values of thisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@LastName", mThisCustomer.LastName);
+            DB.AddParameter("@Email", mThisCustomer.Email);
+            DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
+            DB.AddParameter("@DateOfBirth", mThisCustomer.DateOfBirth);
+            DB.AddParameter("@Active", mThisCustomer.Active);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Update");
+        }
     }
 }
