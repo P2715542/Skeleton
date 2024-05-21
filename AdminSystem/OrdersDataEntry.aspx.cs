@@ -46,10 +46,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.StaffId = Convert.ToInt32(StaffId);
             // capture the date ordered
             AnOrder.DateOrdered = Convert.ToDateTime(DateOrdered);
-            // store the order id in the session object
-            Session["AnOrder"] = AnOrder;
-            // Navigate to View Page
-            Response.Redirect("OrdersViewer.aspx");
+            // capture the order dispatched
+            AnOrder.OrderDispatched = chkOrderDispatched.Checked;
+            // create new instance of order collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+            // set the ThisOrder property
+            OrderList.ThisOrder = AnOrder;
+            // add the new record
+            OrderList.Add();
+            // Navigate back to the list page
+            Response.Redirect("OrdersList.aspx");
         }
         else
         {
