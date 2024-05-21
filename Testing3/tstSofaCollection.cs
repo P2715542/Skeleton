@@ -69,5 +69,28 @@ namespace Testing3
             Assert.AreEqual(AllSofas.Count, TestList.Count);
 
         }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsSofaCollection AllSofas = new clsSofaCollection();
+            clsSofa TestItem = new clsSofa();
+            Int32 PrimaryKey = 0;
+            TestItem.SofaId = 4;
+            TestItem.SofaDescription = "Small";
+            TestItem.Colour = "Blue";
+            TestItem.SupplierId = 2;
+            TestItem.Price = 233;
+            TestItem.Available = true;
+            TestItem.DateAdded = DateTime.Now;
+            AllSofas.ThisSofa = TestItem;
+            PrimaryKey = AllSofas.Add();
+            TestItem.SofaId = PrimaryKey;
+            AllSofas.ThisSofa.Find(PrimaryKey);
+            Assert.AreEqual(AllSofas.ThisSofa, TestItem);
+
+
+
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace ClassLibrary
     public class clsSofaCollection
     {
         List<clsSofa> mSofaList = new List<clsSofa>();
-
+        clsSofa mThisSofa = new clsSofa();
         public clsSofaCollection()
         {
             Int32 Index = 0;
@@ -51,6 +51,29 @@ namespace ClassLibrary
             }
         }
     
-        public clsSofa ThisSofa { get; set; }
+        public clsSofa ThisSofa
+        {
+            get
+            {
+                return mThisSofa;
+            }
+            set
+            {
+                mThisSofa = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SofaDescription", mThisSofa.SofaDescription);
+            DB.AddParameter("@SofaColour", mThisSofa.Colour);
+            DB.AddParameter("@SupplierId", mThisSofa.SupplierId);
+            DB.AddParameter("@Price", mThisSofa.Price);
+            DB.AddParameter("@Available", mThisSofa.Available);
+            DB.AddParameter("@DateAdded", mThisSofa.DateAdded);
+
+            return DB.Execute("sproc_tblSofa_Insert");
+        }
     }
 }
