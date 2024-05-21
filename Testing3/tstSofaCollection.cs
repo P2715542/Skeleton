@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace Testing3
 {
@@ -91,6 +92,36 @@ namespace Testing3
 
 
 
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsSofaCollection AllSofas = new clsSofaCollection();
+            clsSofa TestItem = new clsSofa();
+            Int32 PrimaryKey = 0;
+            TestItem.SofaId = 4;
+            TestItem.SofaDescription = "Tiny";
+            TestItem.Colour = "Brown";
+            TestItem.SupplierId = 2;
+            TestItem.Price = 544;
+            TestItem.Available = true;
+            TestItem.DateAdded = DateTime.Now;
+            AllSofas.ThisSofa = TestItem;
+            PrimaryKey = AllSofas.Add();
+
+            TestItem.SofaId = PrimaryKey;
+            TestItem.SofaId = 6;
+            TestItem.SofaDescription = "Comfy";
+            TestItem.Colour = "Green";
+            TestItem.SupplierId = 2;
+            TestItem.Price = 655;
+            TestItem.Available = false;
+            TestItem.DateAdded = DateTime.Now;
+            AllSofas.ThisSofa = TestItem;
+            AllSofas.Update();
+            AllSofas.ThisSofa.Find(PrimaryKey);
+            Assert.AreEqual(AllSofas.ThisSofa, TestItem);
         }
     }
 }
