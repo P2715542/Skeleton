@@ -34,7 +34,7 @@ namespace Testing3
             Assert.AreEqual(AllSofas.SofaList, TestList);
         }
 
-        
+
 
         [TestMethod]
         public void ThisSofaPropertyOK()
@@ -122,6 +122,70 @@ namespace Testing3
             AllSofas.Update();
             AllSofas.ThisSofa.Find(PrimaryKey);
             Assert.AreEqual(AllSofas.ThisSofa, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsSofaCollection AllSofas = new clsSofaCollection();
+            clsSofa TestItem = new clsSofa();
+            Int32 PrimaryKey = 0;
+            TestItem.SofaId = 4;
+            TestItem.SofaDescription = "Small";
+            TestItem.Colour = "Blue";
+            TestItem.SupplierId = 2;
+            TestItem.Price = 233;
+            TestItem.Available = true;
+            TestItem.DateAdded = DateTime.Now;
+            AllSofas.ThisSofa = TestItem;
+            PrimaryKey = AllSofas.Add();
+            TestItem.SofaId = PrimaryKey;
+            AllSofas.ThisSofa.Find(PrimaryKey);
+            AllSofas.Delete();
+            Boolean Found = AllSofas.ThisSofa.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportBySofaColourMethodOk()
+        {
+            clsSofaCollection AllSofas = new clsSofaCollection();
+            clsSofaCollection FilteredSofas = new clsSofaCollection();
+            FilteredSofas.ReportByColour("");
+            Assert.AreEqual(AllSofas.Count, FilteredSofas.Count);
+        }
+
+        [TestMethod]
+        public void ReportBySofaColourNoneFound()
+        {
+            clsSofaCollection FilteredSofas = new clsSofaCollection();
+            FilteredSofas.ReportByColour("xxxx");
+            Assert.AreEqual(0, FilteredSofas.Count);
+        }
+
+        [TestMethod]
+        public void ReportBySofaColourTestDataFound()
+        {
+            clsSofaCollection FilteredSofas = new clsSofaCollection();
+            Boolean OK = true;
+            FilteredSofas.ReportByColour("Green");
+            if (FilteredSofas.Count == 2)
+            {
+                if (FilteredSofas.SofaList[0].SofaId != 51)
+                {
+                    OK = false;
+                }
+
+                if (FilteredSofas.SofaList[1].SofaId != 62)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
     }
 }
