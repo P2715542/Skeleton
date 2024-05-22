@@ -8,24 +8,9 @@ namespace ClassLibrary
         clsSofa mThisSofa = new clsSofa();
         public clsSofaCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblSofa_SelectAll");
-            RecordCount = DB.Count;
-            while (Index < RecordCount)
-            {
-                clsSofa ASofa = new clsSofa();
-                ASofa.SofaId = Convert.ToInt32(DB.DataTable.Rows[Index]["SofaId"]);
-                ASofa.SofaDescription = Convert.ToString(DB.DataTable.Rows[Index]["SofaDescription"]);
-                ASofa.Colour = Convert.ToString(DB.DataTable.Rows[Index]["SofaColour"]);
-                ASofa.SupplierId = Convert.ToInt32(DB.DataTable.Rows[Index]["SupplierId"]);
-                ASofa.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
-                ASofa.Available = Convert.ToBoolean(DB.DataTable.Rows[Index]["Available"]);
-                ASofa.DateAdded= Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
-                mSofaList.Add(ASofa);
-                Index++;
-            }
+            PopulateArray(DB);
 
         }
         public List<clsSofa> SofaList
@@ -76,6 +61,21 @@ namespace ClassLibrary
             return DB.Execute("sproc_tblSofa_Insert");
         }
 
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SofaId", mThisSofa.SofaId);
+            DB.Execute("sproc_tblSofa_Delete");
+        }
+
+        public void ReportByColour(string SofaColour)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SofaColour", SofaColour);
+            DB.Execute("sproc_tblSofa_FilterBySofaColour");
+            PopulateArray(DB);
+        }
+
         public void Update()
         { 
             clsDataConnection DB = new clsDataConnection();
@@ -88,6 +88,27 @@ namespace ClassLibrary
             DB.AddParameter("@DateAdded", mThisSofa.DateAdded);
 
             DB.Execute("sproc_tblSofa_Update");
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount = 0;
+            RecordCount = DB.Count;
+            mSofaList = new List<clsSofa>();
+            while (Index < RecordCount)
+            {
+                clsSofa ASofa = new clsSofa();
+                ASofa.SofaId = Convert.ToInt32(DB.DataTable.Rows[Index]["SofaId"]);
+                ASofa.SofaDescription = Convert.ToString(DB.DataTable.Rows[Index]["SofaDescription"]);
+                ASofa.Colour = Convert.ToString(DB.DataTable.Rows[Index]["SofaColour"]);
+                ASofa.SupplierId = Convert.ToInt32(DB.DataTable.Rows[Index]["SupplierId"]);
+                ASofa.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
+                ASofa.Available = Convert.ToBoolean(DB.DataTable.Rows[Index]["Available"]);
+                ASofa.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
+                mSofaList.Add(ASofa);
+                Index++;
+            }
         }
     }
 }
