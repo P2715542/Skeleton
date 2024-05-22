@@ -70,6 +70,61 @@ namespace ClassLibrary
             DB.Execute("sproc_tblOrder_Update");
         }
 
+        public void Delete()
+        {
+            // deletes the record pointed to by thisOrder
+            // connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            // set the parameters for the sotred procedure
+            DB.AddParameter("@OrderId", mThisOrder.OrderId);
+            // execute the stored procedure
+            DB.Execute("sproc_tblOrder_Delete");
+        }
+
+        public void ReportByOrderName(string OrderName)
+        {
+            // filters the records based on a full or partial order name
+            // connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            // send the OrderName parameter to the database
+            DB.AddParameter("OrderName", OrderName);
+            // execute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderName");
+            // populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            // populates the array list based on the data table in the parameter DB
+            // variable for the index
+            Int32 Index = 0;
+            // variable to store the record count
+            Int32 RecordCount;
+            // get the record counts
+            RecordCount = DB.Count;
+            // clear the private array list
+            mOrderList = new List<clsOrder>();
+            // while there are records to process
+            while (Index < RecordCount)
+            {
+                // create a blank order object
+                clsOrder AnOrder = new clsOrder();
+                // read the fields from the current record
+                AnOrder.OrderId = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderId"]);
+                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
+                AnOrder.SofaId = Convert.ToInt32(DB.DataTable.Rows[Index]["SofaId"]);
+                AnOrder.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                AnOrder.StaffId = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffId"]);
+                AnOrder.DateOrdered = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOrdered"]);
+                AnOrder.OrderDispatched = Convert.ToBoolean(DB.DataTable.Rows[Index]["OrderDispatched"]);
+                // add the record to the private data member
+                mOrderList.Add(AnOrder);
+                // point at the next record
+                Index++;
+            }
+        }
+
         public clsOrder ThisOrder
         {
             get
@@ -87,35 +142,12 @@ namespace ClassLibrary
         // constructor for class
         public clsOrderCollection() 
         {
-            //variable for the index
-            Int32 Index = 0;
-            // variable for record count
-            Int32 RecordCount = 0;
-            // object for the data connect
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
-            // execute stored procedure
+            // execute the stored procedure
             DB.Execute("sproc_tblOrder_SelectAll");
-            // get count of records
-            RecordCount = DB.Count;
-            // while there are records to process
-            while (Index < RecordCount)
-            {
-                // create a blank order
-                clsOrder AnOrder = new clsOrder();
-                // read in the fields for the current record
-                AnOrder.OrderId = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderId"]);
-                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
-                AnOrder.SofaId = Convert.ToInt32(DB.DataTable.Rows[Index]["SofaId"]);
-                AnOrder.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
-                AnOrder.StaffId = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffId"]);
-                AnOrder.DateOrdered = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOrdered"]);
-                AnOrder.OrderDispatched = Convert.ToBoolean(DB.DataTable.Rows[Index]["OrderDispatched"]);
-                // add record to private data member
-                mOrderList.Add(AnOrder);
-                // point at next record
-                Index++;
-            }
-
+            // populate the array list with the data table
+            PopulateArray(DB);
         }
     }
 }
