@@ -78,7 +78,7 @@ namespace Testing3
             clsSofa TestItem = new clsSofa();
             Int32 PrimaryKey = 0;
             TestItem.SofaId = 4;
-            TestItem.SofaDescription = "Small";
+            TestItem.SofaDescription = "SofaName1v2";
             TestItem.Colour = "Blue";
             TestItem.SupplierId = 2;
             TestItem.Price = 233;
@@ -101,7 +101,7 @@ namespace Testing3
             clsSofa TestItem = new clsSofa();
             Int32 PrimaryKey = 0;
             TestItem.SofaId = 4;
-            TestItem.SofaDescription = "Tiny";
+            TestItem.SofaDescription = "SofaName1v2";
             TestItem.Colour = "Brown";
             TestItem.SupplierId = 2;
             TestItem.Price = 544;
@@ -131,7 +131,7 @@ namespace Testing3
             clsSofa TestItem = new clsSofa();
             Int32 PrimaryKey = 0;
             TestItem.SofaId = 4;
-            TestItem.SofaDescription = "Small";
+            TestItem.SofaDescription = "SofaName3v2";
             TestItem.Colour = "Blue";
             TestItem.SupplierId = 2;
             TestItem.Price = 233;
@@ -151,7 +151,7 @@ namespace Testing3
         {
             clsSofaCollection AllSofas = new clsSofaCollection();
             clsSofaCollection FilteredSofas = new clsSofaCollection();
-            FilteredSofas.ReportByColour("");
+            FilteredSofas.ReportByDescription("");
             Assert.AreEqual(AllSofas.Count, FilteredSofas.Count);
         }
 
@@ -159,24 +159,24 @@ namespace Testing3
         public void ReportBySofaColourNoneFound()
         {
             clsSofaCollection FilteredSofas = new clsSofaCollection();
-            FilteredSofas.ReportByColour("xxxx");
+            FilteredSofas.ReportByDescription("xxxx");
             Assert.AreEqual(0, FilteredSofas.Count);
         }
 
         [TestMethod]
-        public void ReportBySofaColourTestDataFound()
+        public void ReportBySofaDescriptionTestDataFound()
         {
             clsSofaCollection FilteredSofas = new clsSofaCollection();
             Boolean OK = true;
-            FilteredSofas.ReportByColour("Green");
+            FilteredSofas.ReportByDescription("SofaName5v1");
             if (FilteredSofas.Count == 2)
             {
-                if (FilteredSofas.SofaList[0].SofaId != 51)
+                if (FilteredSofas.SofaList[0].SofaId != 116)
                 {
                     OK = false;
                 }
 
-                if (FilteredSofas.SofaList[1].SofaId != 62)
+                if (FilteredSofas.SofaList[1].SofaId != 117)
                 {
                     OK = false;
                 }

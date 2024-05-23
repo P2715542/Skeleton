@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 public partial class _1_List : System.Web.UI.Page
 {
-    Int32 SofaId;
+   
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
@@ -22,7 +22,7 @@ public partial class _1_List : System.Web.UI.Page
         clsSofaCollection Sofas = new clsSofaCollection();
         lstSofaList.DataSource = Sofas.SofaList;
         lstSofaList.DataValueField = "SofaId";
-        lstSofaList.DataTextField = "Colour";
+        lstSofaList.DataTextField = "SofaDescription";
         lstSofaList.DataBind();
     }
 
@@ -75,17 +75,17 @@ public partial class _1_List : System.Web.UI.Page
     protected void BtnApplyFilter_Click(object sender, EventArgs e)
     {
         clsSofaCollection ASofa = new clsSofaCollection();
-        ASofa.ReportByColour(txtEnteredColour.Text);
+        ASofa.ReportByDescription(txtEnteredColour.Text);
         lstSofaList.DataSource = ASofa.SofaList;
         lstSofaList.DataValueField = "SofaId";
-        lstSofaList.DataTextField = "Colour";
+        lstSofaList.DataTextField = "Description";
         lstSofaList.DataBind();
     }
 
     protected void BtnClearFilter_Click(object sender, EventArgs e)
     {
         clsSofaCollection ASofa = new clsSofaCollection();
-        ASofa.ReportByColour("");
+        ASofa.ReportByDescription("");
         txtEnteredColour.Text = "";
         lstSofaList.DataSource = ASofa.SofaList;
         lstSofaList.DataValueField = "SofaId";
