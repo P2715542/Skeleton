@@ -48,6 +48,7 @@
     <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsSofa.cs" />
     <Compile Include="clsSofaCollection.cs" />
+    <Compile Include="clsSofaUser.cs" />
     <Compile Include="clsStaff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -68,11 +68,11 @@ namespace ClassLibrary
             DB.Execute("sproc_tblSofa_Delete");
         }
 
-        public void ReportByColour(string SofaColour)
+        public void ReportByDescription(string SofaDecription)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@SofaColour", SofaColour);
-            DB.Execute("sproc_tblSofa_FilterBySofaColour");
+            DB.AddParameter("@SofaDescription", SofaDecription);
+            DB.Execute("sproc_tblSofa_FilterBySofaDescription");
             PopulateArray(DB);
         }
 
