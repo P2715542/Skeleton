@@ -9,8 +9,8 @@ namespace ClassLibrary
         private string mFirstName;
         private string mLastName;
         private string mEmail;
-        private string mPhoneNumber;
-        private DateTime mDateOfBirth;
+        private string mPassword;
+        private DateTime mAccountCreated;
         private Boolean mActive;
 
 
@@ -74,33 +74,33 @@ namespace ClassLibrary
             }
         }
 
-        //PhoneNumber public property
-        public string PhoneNumber
+        //Password public property
+        public string Password
         {
             get
             {
                 //this line of code sends data out of the property
-                return mPhoneNumber;
+                return mPassword;
             }
             set
             {
                 //this line of code allows data into the property
-                mPhoneNumber = value;
+                mPassword = value;
             }
         }
 
         //DateTime public property
-        public DateTime DateOfBirth
+        public DateTime AccountCreated
         {
             get
             {
                 //this line of code sends data out of the property
-                return mDateOfBirth;
+                return mAccountCreated;
             }
             set
             {
                 //this line of code allows the data into the property
-                mDateOfBirth = value;
+                mAccountCreated = value;
             }
         }
 
@@ -135,8 +135,8 @@ namespace ClassLibrary
                 mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
                 mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
+                mAccountCreated = Convert.ToDateTime(DB.DataTable.Rows[0]["AccountCreated"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 //return that everything worked OK
                 return true;
@@ -149,7 +149,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string firstName, string lastName, string email, string phoneNumber, string dateOfBirth)
+        public string Valid(string firstName, string lastName, string email, string password, string accountCreated)
         {
             //create a string variable to store the error
             String Error = "";
@@ -200,42 +200,43 @@ namespace ClassLibrary
             }
 
 
-            //if the phoneNumber is blank
-            if (phoneNumber.Length == 0)
+            //if the Password is blank
+            if (password.Length == 0)
             {
                 //record the error
-                Error = Error + "The phone number may not be blank : ";
+                Error = Error + "The password may not be blank : ";
             }
             //if the phone number is greater than 15 characters
-            if (phoneNumber.Length > 15)
+            if (password.Length > 50)
             {
                 //record the error
-                Error = Error + "The phone number must be less than 15 numbers : ";
+                Error = Error + "The password must be less than 50 characters : ";
             }
 
-
-            DateTime DateComp = DateTime.Now.Date;
+            //create an instance of DateTime to compare with DateTemp
+            DateTime DateComp1 = DateTime.Parse("01/05/2024");
+            DateTime DateComp2 = DateTime.Now.Date;
             try
             {
-                //copy the dateOfBirth value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(dateOfBirth);
+                //copy the AccountCreated value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(accountCreated);
 
-                if (DateTemp < DateComp) //compare dateOfBirth with Date
+                if (DateTemp < DateComp1) //compare AccountCreated with May 1st
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the past: ";
+                    Error = Error + "The date cannot be before May 1st : ";
                 }
                 //check to see if the date is greater than today's date
-                if (DateTemp > DateComp)
+                if (DateTemp > DateComp2)
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the future: ";
+                    Error = Error + "The date cannot be in the future : ";
                 }
             }
             catch
             {
                 //record the error
-                Error = Error + "The date was not a valid date: ";
+                Error = Error + "The date was not a valid date : ";
             }
 
 

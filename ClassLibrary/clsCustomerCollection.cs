@@ -39,18 +39,18 @@ namespace ClassLibrary
         }
 
 
-        public clsCustomer ThisCustomer 
+        public clsCustomer ThisCustomer
         {
-            get 
+            get
             {
                 //return the private data
                 return mThisCustomer;
-            } 
+            }
             set
             {
                 //set the private data
                 mThisCustomer = value;
-            } 
+            }
         }
 
 
@@ -75,8 +75,8 @@ namespace ClassLibrary
             DB.AddParameter("@FirstName", mThisCustomer.FirstName);
             DB.AddParameter("@LastName", mThisCustomer.LastName);
             DB.AddParameter("@Email", mThisCustomer.Email);
-            DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
-            DB.AddParameter("@DateOfBirth", mThisCustomer.DateOfBirth);
+            DB.AddParameter("@Password", mThisCustomer.Password);
+            DB.AddParameter("@AccountCreated", mThisCustomer.AccountCreated);
             DB.AddParameter("@Active", mThisCustomer.Active);
 
             //execute the query returning the primary key value
@@ -93,8 +93,8 @@ namespace ClassLibrary
             DB.AddParameter("@FirstName", mThisCustomer.FirstName);
             DB.AddParameter("@LastName", mThisCustomer.LastName);
             DB.AddParameter("@Email", mThisCustomer.Email);
-            DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
-            DB.AddParameter("@DateOfBirth", mThisCustomer.DateOfBirth);
+            DB.AddParameter("@Password", mThisCustomer.Password);
+            DB.AddParameter("@AccountCreated", mThisCustomer.AccountCreated);
             DB.AddParameter("@Active", mThisCustomer.Active);
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_Update");
@@ -145,8 +145,8 @@ namespace ClassLibrary
                 AnCustomer.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
                 AnCustomer.LastName = Convert.ToString(DB.DataTable.Rows[Index]["LastName"]);
                 AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
-                AnCustomer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
-                AnCustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
+                AnCustomer.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
+                AnCustomer.AccountCreated = Convert.ToDateTime(DB.DataTable.Rows[Index]["AccountCreated"]);
                 AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
                 //add the record to the private data member
                 mCustomerList.Add(AnCustomer);

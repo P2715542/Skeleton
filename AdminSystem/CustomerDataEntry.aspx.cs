@@ -36,8 +36,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtFirstName.Text = Customers.ThisCustomer.FirstName.ToString();
         txtLastName.Text = Customers.ThisCustomer.LastName.ToString();
         txtEmail.Text = Customers.ThisCustomer.Email.ToString();
-        txtPhoneNumber.Text = Customers.ThisCustomer.PhoneNumber.ToString();
-        txtDateOfBirth.Text = Customers.ThisCustomer.DateOfBirth.ToString();
+        txtPassword.Text = Customers.ThisCustomer.Password.ToString();
+        txtAccountCreated.Text = Customers.ThisCustomer.AccountCreated.ToString();
         chkActive.Checked = Customers.ThisCustomer.Active;
     }
 
@@ -52,15 +52,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture the email
         string Email = txtEmail.Text;
         //capture the phone number
-        string PhoneNumber = txtPhoneNumber.Text;
+        string Password = txtPassword.Text;
         //capture the date of birth
-        string DateOfBirth = txtDateOfBirth.Text;
+        string AccountCreated = txtAccountCreated.Text;
         //capture the active check box
         string Active = chkActive.Text;
         //variable to store any error messages
         string Error = "";
         //validate the data
-        Error = AnCustomer.Valid(FirstName, LastName, Email, PhoneNumber, DateOfBirth);
+        Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
         if (Error == "")
         {
             //capture the customer id
@@ -72,9 +72,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the email
             AnCustomer.Email = Email;
             //capture the phone number
-            AnCustomer.PhoneNumber = PhoneNumber;
+            AnCustomer.Password = Password;
             //capture the date of birth
-            AnCustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            AnCustomer.AccountCreated = Convert.ToDateTime(AccountCreated);
             //capture active
             AnCustomer.Active = chkActive.Checked;
             //create a new instance of the customer collection
@@ -128,8 +128,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtFirstName.Text = AnCustomer.FirstName;
             txtLastName.Text = AnCustomer.LastName;
             txtEmail.Text = AnCustomer.Email;
-            txtPhoneNumber.Text = AnCustomer.PhoneNumber;
-            txtDateOfBirth.Text = AnCustomer.DateOfBirth.ToString();
+            txtPassword.Text = AnCustomer.Password;
+            txtAccountCreated.Text = AnCustomer.AccountCreated.ToString();
             chkActive.Checked = AnCustomer.Active;
         }
     }

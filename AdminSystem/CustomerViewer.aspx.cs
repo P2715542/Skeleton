@@ -31,11 +31,11 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         AnCustomer = (clsCustomer)Session["AnCustomer"];
         //displays the customer ID for this entry
-        Response.Write(AnCustomer.PhoneNumber);
+        Response.Write(AnCustomer.Password);
         //get the data from the session object
         AnCustomer = (clsCustomer)Session["AnCustomer"];
         //displays the customer ID for this entry
-        Response.Write(AnCustomer.DateOfBirth);
+        Response.Write(AnCustomer.AccountCreated);
         //get the data from the session object
         AnCustomer = (clsCustomer)Session["AnCustomer"];
         //displays the customer ID for this entry
