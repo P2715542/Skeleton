@@ -34,8 +34,8 @@ namespace Testing2
             TestItem.FirstName = "Test";
             TestItem.LastName = "Man";
             TestItem.Email = "TestMan@gmail.com";
-            TestItem.PhoneNumber = "07123456789";
-            TestItem.DateOfBirth = DateTime.Now;
+            TestItem.Password = "manT3st";
+            TestItem.AccountCreated = DateTime.Parse("10/05/2024");
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -57,8 +57,8 @@ namespace Testing2
             TestCustomer.FirstName = "Test";
             TestCustomer.LastName = "Man";
             TestCustomer.Email = "TestMan@gmail.com";
-            TestCustomer.PhoneNumber = "07123456789";
-            TestCustomer.DateOfBirth = DateTime.Now;
+            TestCustomer.Password = "manT3st";
+            TestCustomer.AccountCreated = DateTime.Parse("10/05/2024");
             //assign the data to the property
             AllCustomers.ThisCustomer = TestCustomer;
             //test to see that the two values are the same
@@ -82,8 +82,8 @@ namespace Testing2
             TestItem.FirstName = "Test";
             TestItem.LastName = "Man";
             TestItem.Email = "TestMan@gmail.com";
-            TestItem.PhoneNumber = "07123456789";
-            TestItem.DateOfBirth = DateTime.Now;
+            TestItem.Password = "manT3st";
+            TestItem.AccountCreated = DateTime.Parse("10/05/2024");
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -106,8 +106,8 @@ namespace Testing2
             TestItem.FirstName = "Test";
             TestItem.LastName = "Man";
             TestItem.Email = "TestMan@gmail.com";
-            TestItem.PhoneNumber = "07123456789";
-            TestItem.DateOfBirth = DateTime.Now;
+            TestItem.Password = "manT3st";
+            TestItem.AccountCreated = DateTime.Parse("10/05/2024");
             //set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
             //add the record
@@ -135,8 +135,8 @@ namespace Testing2
             TestItem.FirstName = "Test";
             TestItem.LastName = "Man";
             TestItem.Email = "TestMan@gmail.com";
-            TestItem.PhoneNumber = "07123456789";
-            TestItem.DateOfBirth = DateTime.Now;
+            TestItem.Password = "manT3st";
+            TestItem.AccountCreated = DateTime.Parse("10/05/2024");
             //set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
             //add the record
@@ -149,8 +149,8 @@ namespace Testing2
             TestItem.FirstName = "Update";
             TestItem.LastName = "Test";
             TestItem.Email = "UpdateTest@gmail.com";
-            TestItem.PhoneNumber = "07123451234";
-            TestItem.DateOfBirth = DateTime.Now;
+            TestItem.Password = "07123451234";
+            TestItem.AccountCreated = DateTime.Now.Date;
             //set the record based on the new test data
             AllCustomers.ThisCustomer = TestItem;
             //update the record
@@ -176,8 +176,8 @@ namespace Testing2
             TestItem.FirstName = "Test";
             TestItem.LastName = "Man";
             TestItem.Email = "TestMan@gmail.com";
-            TestItem.PhoneNumber = "07123456789";
-            TestItem.DateOfBirth = DateTime.Now;
+            TestItem.Password = "manT3st";
+            TestItem.AccountCreated = DateTime.Parse("10/05/2024");
             //set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
             //add the record
