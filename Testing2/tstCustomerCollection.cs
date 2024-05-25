@@ -149,7 +149,7 @@ namespace Testing2
             TestItem.FirstName = "Update";
             TestItem.LastName = "Test";
             TestItem.Email = "UpdateTest@gmail.com";
-            TestItem.Password = "07123451234";
+            TestItem.Password = "upd4teT3st";
             TestItem.AccountCreated = DateTime.Now.Date;
             //set the record based on the new test data
             AllCustomers.ThisCustomer = TestItem;

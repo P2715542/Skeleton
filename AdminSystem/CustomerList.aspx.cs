@@ -76,7 +76,7 @@ public partial class _1_List : System.Web.UI.Page
         else //if no record has been selected
         {
             //display an error message
-            lblError.Text = "Please select a record from the List to delete";
+            lblError.Text = "Please select a record from the list to delete";
         }
     }
 

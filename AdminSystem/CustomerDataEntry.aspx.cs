@@ -20,12 +20,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
             if (CustomerID != -1)
             {
                 //display the current data for the record
-                DisplayCustomers();
+                DisplayCustomer();
             }
         }
     }
 
-    void DisplayCustomers()
+    void DisplayCustomer()
     {
         //create an instance of the customer
         clsCustomerCollection Customers = new clsCustomerCollection();
@@ -51,9 +51,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string LastName = txtLastName.Text;
         //capture the email
         string Email = txtEmail.Text;
-        //capture the phone number
+        //capture the password
         string Password = txtPassword.Text;
-        //capture the date of birth
+        //capture when the account was created
         string AccountCreated = txtAccountCreated.Text;
         //capture the active check box
         string Active = chkActive.Text;
@@ -71,9 +71,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.LastName = LastName;
             //capture the email
             AnCustomer.Email = Email;
-            //capture the phone number
+            //capture the password
             AnCustomer.Password = Password;
-            //capture the date of birth
+            //capture when the account was created
             AnCustomer.AccountCreated = Convert.ToDateTime(AccountCreated);
             //capture active
             AnCustomer.Active = chkActive.Checked;
@@ -108,7 +108,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void btnFind_Click(object sender, EventArgs e)
     {
         //create an instance of the customer class
         clsCustomer AnCustomer = new clsCustomer();
