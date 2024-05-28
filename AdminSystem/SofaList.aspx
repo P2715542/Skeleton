@@ -20,9 +20,10 @@
             <asp:Label ID="lblEnter" runat="server" style="z-index: 1; left: 6px; top: 451px; position: absolute" Text="Enter a Sofa Description"></asp:Label>
             <asp:TextBox ID="txtEnteredColour" runat="server" style="z-index: 1; left: 200px; top: 447px; position: absolute; width: 224px"></asp:TextBox>
         </p>
-        <p>
-            <asp:Button ID="BtnApplyFilter" runat="server" OnClick="BtnApplyFilter_Click" style="z-index: 1; left: 22px; top: 501px; position: absolute; margin-bottom: 11px" Text="Apply Filter" />
-            <asp:Button ID="BtnClearFilter" runat="server" OnClick="BtnClearFilter_Click" style="z-index: 1; left: 194px; top: 499px; position: absolute" Text="Clear Filter" />
+        <p style="margin-left: 640px">
+            <asp:Button ID="BtnApplyFilter" runat="server" OnClick="BtnApplyFilter_Click" style="z-index: 1; left: 22px; top: 495px; position: absolute; margin-bottom: 11px" Text="Apply Filter" />
+            <asp:Button ID="BtnClearFilter" runat="server" OnClick="BtnClearFilter_Click" style="z-index: 1; left: 194px; top: 495px; position: absolute" Text="Clear Filter" />
+            <asp:Button ID="BtnReturn" runat="server" OnClick="BtnReturn_Click1" style="z-index: 1; left: 438px; top: 498px; position: absolute" Text="Return to Main Menu" />
         </p>
         <p>
             &nbsp;</p>
@@ -30,8 +31,7 @@
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 12px; top: 569px; position: absolute" Text="lblError"></asp:Label>
         </p>
         <p>
-            <asp:Button ID="BtnReturn" runat="server" OnClick="BtnReturn_Click" Text="Return to Main Menu" />
-        </p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

@@ -107,7 +107,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtDateAdded.Text = SofaCollection.ThisSofa.DateAdded.ToString();
     }
 
-    protected void BtnReturn_Click(object sender, EventArgs e)
+   
+
+
+
+
+
+    protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("TeamMainMenu.aspx");
     }
