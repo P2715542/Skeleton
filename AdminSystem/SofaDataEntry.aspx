@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 10px; top: 34px; position: absolute" Text="Label"></asp:Label>
         <asp:TextBox ID="txtSofaId" runat="server" style="z-index: 1; left: 128px; top: 49px; position: absolute; width: 304px; height: 25px"></asp:TextBox>
         <p>
             <asp:Label ID="lblSofaId" runat="server" style="z-index: 1; left: 14px; top: 57px; position: absolute" Text="Sofa ID" width="97px"></asp:Label>

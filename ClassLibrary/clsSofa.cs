@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 using System.Configuration;
 
 namespace ClassLibrary
 {
     public class clsSofa
     {
-    
 
         public bool Find(int sofaId)
         {
