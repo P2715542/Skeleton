@@ -22,6 +22,7 @@ public partial class SofaLogin : System.Web.UI.Page
         UserName = Convert.ToString(txtUsername.Text);
         Password = Convert.ToString(txtPassword.Text);
         Found = AUser.FindUser(UserName, Password);
+        Session["AUser"] = AUser;
         if (txtUsername.Text == "")
         {
             lblError.Text = "Enter a username";
@@ -39,5 +40,10 @@ public partial class SofaLogin : System.Web.UI.Page
         {
             lblError.Text = "Login details are incorrect. Please try again";
         }
+    }
+
+    protected void BtnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
