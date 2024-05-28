@@ -30,9 +30,10 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 44px; top: 332px; position: absolute; margin-top: 0px; width: 731px;"></asp:Label>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 44px; top: 369px; position: absolute" Text="OK" width="60px" />
         <p>
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 155px; top: 368px; position: absolute" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 155px; top: 368px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
         </p>
-        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 313px; top: 37px; position: absolute" Text="Find" />
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 348px; top: 37px; position: absolute" Text="Find" />
+        <asp:Button ID="btnReturnToMainMenu" runat="server" OnClick="btnReturnToMainMenu_Click" style="z-index: 1; left: 303px; top: 369px; position: absolute" Text="Return to Main Menu" />
     </form>
 </body>
 </html>

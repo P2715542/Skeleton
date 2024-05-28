@@ -10,7 +10,7 @@ public partial class OrdersLogin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -28,6 +28,8 @@ public partial class OrdersLogin : System.Web.UI.Page
         Password = Convert.ToString(txtPassword.Text);
         // find the record
         Found = AnUser.FindUser(UserName, Password);
+        // Add a session to capture the user name
+        Session["AnUser"]=AnUser;
         if (txtUserName.Text == "")
         {
             // record the error
@@ -49,5 +51,11 @@ public partial class OrdersLogin : System.Web.UI.Page
             // record the error
             lblError.Text = "Login Details are incorrect. Please try again ";
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        // redirect to main menu
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

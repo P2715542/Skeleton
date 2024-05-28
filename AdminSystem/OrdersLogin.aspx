@@ -21,7 +21,7 @@
         <asp:TextBox ID="txtUserName" runat="server" style="z-index: 1; left: 163px; top: 129px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtPassword" runat="server" style="z-index: 1; left: 163px; top: 171px; position: absolute" TextMode="Password"></asp:TextBox>
         <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" style="z-index: 1; left: 161px; top: 237px; position: absolute" Text="Login" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 229px; top: 238px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 229px; top: 238px; position: absolute; height: 26px;" Text="Cancel" OnClick="btnCancel_Click" />
     </form>
 </body>
 </html>
