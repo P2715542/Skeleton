@@ -15,6 +15,10 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplaySofas();
         }
+
+        clsSofaUser AUser = new clsSofaUser();
+        AUser = (clsSofaUser)Session["AUser"];
+        Response.Write("Logged in as: " + AUser.UserName);
     }
 
     void DisplaySofas()
@@ -78,7 +82,7 @@ public partial class _1_List : System.Web.UI.Page
         ASofa.ReportByDescription(txtEnteredColour.Text);
         lstSofaList.DataSource = ASofa.SofaList;
         lstSofaList.DataValueField = "SofaId";
-        lstSofaList.DataTextField = "Description";
+        lstSofaList.DataTextField = "SofaDescription";
         lstSofaList.DataBind();
     }
 
@@ -89,8 +93,13 @@ public partial class _1_List : System.Web.UI.Page
         txtEnteredColour.Text = "";
         lstSofaList.DataSource = ASofa.SofaList;
         lstSofaList.DataValueField = "SofaId";
-        lstSofaList.DataTextField = "Colour";
+        lstSofaList.DataTextField = "SofaDescription";
         lstSofaList.DataBind();
 
+    }
+
+    protected void BtnReturn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

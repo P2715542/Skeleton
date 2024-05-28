@@ -17,7 +17,7 @@
         <asp:Button ID="BtnEdit" runat="server" OnClick="BtnEdit_Click" Text="Edit" height="26px" width="55px" />
         </p>
         <p>
-            <asp:Label ID="lblEnter" runat="server" style="z-index: 1; left: 6px; top: 451px; position: absolute" Text="Enter a Sofa Colour"></asp:Label>
+            <asp:Label ID="lblEnter" runat="server" style="z-index: 1; left: 6px; top: 451px; position: absolute" Text="Enter a Sofa Description"></asp:Label>
             <asp:TextBox ID="txtEnteredColour" runat="server" style="z-index: 1; left: 200px; top: 447px; position: absolute; width: 224px"></asp:TextBox>
         </p>
         <p>
@@ -28,6 +28,9 @@
             &nbsp;</p>
         <p>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 12px; top: 569px; position: absolute" Text="lblError"></asp:Label>
+        </p>
+        <p>
+            <asp:Button ID="BtnReturn" runat="server" OnClick="BtnReturn_Click" Text="Return to Main Menu" />
         </p>
     </form>
 </body>
