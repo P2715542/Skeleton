@@ -112,7 +112,7 @@ namespace Testing3
 
             TestItem.SofaId = PrimaryKey;
             TestItem.SofaId = 6;
-            TestItem.SofaDescription = "Comfy";
+            TestItem.SofaDescription = "SofaName2v2";
             TestItem.Colour = "Green";
             TestItem.SupplierId = 2;
             TestItem.Price = 655;
