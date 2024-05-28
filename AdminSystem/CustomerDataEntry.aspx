@@ -32,10 +32,11 @@
         <asp:Label ID="lblAccountCreated" runat="server" style="z-index: 1; left: 14px; top: 223px; position: absolute; width: 138px;" Text="Account Created" height="19px"></asp:Label>
         <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 21px; top: 339px; position: absolute" Text="OK" OnClick="btnOK_Click" />
         <asp:TextBox ID="txtAccountCreated" runat="server" style="z-index: 1; left: 163px; top: 219px; position: absolute" height="25px" width="168px"></asp:TextBox>
-        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 110px; top: 259px; position: absolute; width: 78px;" Text="Active" />
+        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 158px; top: 258px; position: absolute; width: 78px;" Text="Active" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; top: 295px; position: absolute"></asp:Label>
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 79px; top: 339px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 79px; top: 339px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Button ID="btnFind" runat="server" style="z-index: 1; left: 394px; top: 84px; position: absolute" Text="Find" OnClick="btnFind_Click" />
+        <asp:Button ID="btnMainMenu" runat="server" OnClick="btnMainMenu_Click" style="z-index: 1; left: 171px; top: 339px; position: absolute" Text="Return to Main Menu" />
     </form>
 </body>
 </html>
