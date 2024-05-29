@@ -18,6 +18,7 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
     protected void BtnYes_Click(object sender, EventArgs e)
     {
         clsSofaCollection SofaCollection = new clsSofaCollection();
+        SofaCollection.ThisSofa.Find(SofaId);
         SofaCollection.Delete();
         Response.Redirect("SofaList.aspx");
     }
