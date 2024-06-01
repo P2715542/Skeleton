@@ -22,7 +22,7 @@
             <asp:TextBox ID="txtSofaDescription" runat="server" style="z-index: 1; left: 128px; top: 113px; position: absolute; width: 304px; height: 25px"></asp:TextBox>
         </p>
         <p>
-            <asp:TextBox ID="txtSofaColour" runat="server" OnTextChanged="TextBox3_TextChanged" style="z-index: 1; left: 128px; top: 165px; position: absolute; width: 304px; height: 25px; margin-bottom: 0px"></asp:TextBox>
+            <asp:TextBox ID="txtSofaColour" runat="server"  style="z-index: 1; left: 128px; top: 165px; position: absolute; width: 304px; height: 25px; margin-bottom: 0px"></asp:TextBox>
         </p>
         <asp:Label ID="lblSupplierId" runat="server" style="z-index: 1; left: 14px; top: 217px; position: absolute; margin-bottom: 0px" Text="Supplier ID" width="97px"></asp:Label>
         <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click1" style="z-index: 1; left: 536px; top: 111px; position: absolute" Text="Find" />
@@ -43,9 +43,9 @@
             &nbsp;</p>
         <p style="margin-left: 480px">
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 3px; top: 437px; position: absolute; height: 20px; width: 986px; right: 521px"></asp:Label>
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 245px; top: 449px; position: absolute; margin-bottom: 80px" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 245px; top: 456px; position: absolute; margin-bottom: 80px" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 159px; top: 456px; position: absolute; width: 58px" Text="OK" />
-            <asp:Button ID="BtnReturn" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 490px; top: 452px; position: absolute" Text="Return to Main Menu" />
+            <asp:Button ID="BtnReturn" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 339px; top: 456px; position: absolute" Text="Return to Main Menu" />
         </p>
         <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 135px; top: 382px; position: absolute" Text="Available" />
         <p style="margin-left: 360px">

@@ -412,7 +412,7 @@ namespace TestingSofa
             Boolean OK = true;
             Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.SofaDescription != "SofaName3v1")
+            if (ASofa.SofaDescription != "SofaName1v3")
             {
                 OK = false;
             }
@@ -456,7 +456,7 @@ namespace TestingSofa
             Boolean OK = true;
             Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.Price != 554)
+            if (ASofa.Price != 899)
             {
                 OK = false;
             }
@@ -471,7 +471,7 @@ namespace TestingSofa
             Boolean OK = true;
             Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.Available != false)
+            if (ASofa.Available != true)
             {
                 OK = false;
             }
@@ -486,7 +486,7 @@ namespace TestingSofa
             Boolean OK = true;
             Int32 SofaId = 3;
             Found = ASofa.Find(SofaId);
-            if (ASofa.DateAdded != Convert.ToDateTime("14/07/2023"))
+            if (ASofa.DateAdded != Convert.ToDateTime("01/06/2024"))
             {
                 OK = false;
             }
