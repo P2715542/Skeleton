@@ -77,7 +77,7 @@ namespace Testing3
             clsSofaCollection AllSofas = new clsSofaCollection();
             clsSofa TestItem = new clsSofa();
             Int32 PrimaryKey = 0;
-            TestItem.SofaId = 4;
+            TestItem.SofaId = 1;
             TestItem.SofaDescription = "SofaName1v2";
             TestItem.Colour = "Blue";
             TestItem.SupplierId = 2;
@@ -100,18 +100,19 @@ namespace Testing3
             clsSofaCollection AllSofas = new clsSofaCollection();
             clsSofa TestItem = new clsSofa();
             Int32 PrimaryKey = 0;
-            TestItem.SofaId = 4;
-            TestItem.SofaDescription = "SofaName1v2";
+            TestItem.SofaId = 1;
+            TestItem.SofaDescription = "SofaName1v3";
             TestItem.Colour = "Brown";
             TestItem.SupplierId = 2;
             TestItem.Price = 544;
             TestItem.Available = true;
             TestItem.DateAdded = DateTime.Now;
+           
             AllSofas.ThisSofa = TestItem;
             PrimaryKey = AllSofas.Add();
 
             TestItem.SofaId = PrimaryKey;
-            TestItem.SofaId = 6;
+           
             TestItem.SofaDescription = "SofaName2v2";
             TestItem.Colour = "Green";
             TestItem.SupplierId = 2;
@@ -130,7 +131,7 @@ namespace Testing3
             clsSofaCollection AllSofas = new clsSofaCollection();
             clsSofa TestItem = new clsSofa();
             Int32 PrimaryKey = 0;
-            TestItem.SofaId = 4;
+            TestItem.SofaId = 9;
             TestItem.SofaDescription = "SofaName3v2";
             TestItem.Colour = "Blue";
             TestItem.SupplierId = 2;
@@ -171,12 +172,12 @@ namespace Testing3
             FilteredSofas.ReportByDescription("SofaName5v1");
             if (FilteredSofas.Count == 2)
             {
-                if (FilteredSofas.SofaList[0].SofaId != 116)
+                if (FilteredSofas.SofaList[0].SofaId != 13)
                 {
                     OK = false;
                 }
 
-                if (FilteredSofas.SofaList[1].SofaId != 117)
+                if (FilteredSofas.SofaList[1].SofaId != 14)
                 {
                     OK = false;
                 }

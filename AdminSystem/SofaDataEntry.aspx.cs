@@ -22,10 +22,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 
-    protected void TextBox3_TextChanged(object sender, EventArgs e)
-    {
-
-    }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -117,4 +113,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         Response.Redirect("TeamMainMenu.aspx");
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("SofaList.aspx");
+    }
+
+   
 }
