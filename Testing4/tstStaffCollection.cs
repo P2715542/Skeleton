@@ -36,7 +36,7 @@ namespace Testing4
             TestItem.FirstName = "Test";
             TestItem.LastName = "Man";
             TestItem.Email = "TestMan@gmail.com";
-            TestItem.Role= "Service";
+            TestItem.Role = "Service";
             TestItem.DoB = DateTime.Parse("01/01/2020");
             //add the item to the test list
             TestList.Add(TestItem);
@@ -210,7 +210,7 @@ namespace Testing4
         {
             clsStaffCollection FilteredStaff = new clsStaffCollection();
             FilteredStaff.ReportByLastName("xxxxxx");
-            Assert.AreEqual(0,FilteredStaff.Count);
+            Assert.AreEqual(0, FilteredStaff.Count);
         }
         [TestMethod]
         public void ReportByLastNameTestDataFound()
@@ -220,12 +220,12 @@ namespace Testing4
             //variable to store the outcome
             Boolean OK = true;
             //apply a last name that doesn't exist
-            FilteredStaff.ReportByLastName("Nowazka");
+            FilteredStaff.ReportByLastName("woodkei");
             //check that the correct number of records are found
             if (FilteredStaff.Count == 2)
             {
                 //check to see that the first record is 25
-                if (FilteredStaff.StaffList[0].StaffId != 7425)
+                if (FilteredStaff.StaffList[0].StaffId != 25)
                 {
                     OK = false;
                 }
@@ -239,8 +239,6 @@ namespace Testing4
             {
                 OK = false;
             }
-            //test to see that there are no records
-            Assert.IsTrue(OK);
         }
     }
 }

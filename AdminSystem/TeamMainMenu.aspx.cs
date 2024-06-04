@@ -32,7 +32,7 @@ public partial class TeamMainMenu : System.Web.UI.Page
 
     protected void btnStaff_Click(object sender, EventArgs e)
     {
-        // redirect the user to the staff login page
-        //Response.Redirect("StaffLogin.aspx");
+        //redirect the user to the staff login page
+        Response.Redirect("StaffLogin.aspx");
     }
 }
