@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Common;
 
 namespace ClassLibrary
 {
@@ -119,16 +120,28 @@ namespace ClassLibrary
         /****** FIND METHOD ******/
         public bool Find(int StaffId)
         {
-            //set the private data members to the test data value
-            mStaffId = 6;
-            mFirstName = "Ftest";
-            mLastName = "Ltest";
-            mEmail = "FLtest@mail.com";
-            mRole = "Service";
-            mDoB = Convert.ToDateTime("12/05/2024");
-            mActive = true;
-            //always return true
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            //add parameters
+            DB.AddParameter("@StaffId", StaffId);
+            //execute
+            DB.Execute("sproc_tblStaff_FilterByStaffId");
+            if (DB.Count == 1)
+            {
+                //set the private data members to the test data value
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]); 
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]); 
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]); 
+                mRole = Convert.ToString(DB.DataTable.Rows[0]["Role"]); 
+                mDoB = Convert.ToDateTime(DB.DataTable.Rows[0]["DoB"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                //always return true
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string Valid(string firstName, string lastName, string email, string role, string doB)

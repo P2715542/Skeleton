@@ -117,7 +117,7 @@ namespace Testing4
             //create a Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            int StaffId = 6;
+            int StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //test to see if the result is true
@@ -134,11 +134,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int StaffId = 6;
+            int StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the address id
-            if (AnStaff.StaffId != 6)
+            if (AnStaff.StaffId != 2)
             {
                 OK = false;
             }
@@ -155,11 +155,11 @@ namespace Testing4
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 6;
+            Int32 StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the town property
-            if (AnStaff.FirstName != "Ftest")
+            if (AnStaff.FirstName != "Sarah")
             {
                 OK = false;
             }
@@ -176,11 +176,11 @@ namespace Testing4
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 6;
+            Int32 StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the town property
-            if (AnStaff.LastName != "Ltest")
+            if (AnStaff.LastName != "Nowazka")
             {
                 OK = false;
             }
@@ -197,11 +197,11 @@ namespace Testing4
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 6;
+            Int32 StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the town property
-            if (AnStaff.Role != "Service")
+            if (AnStaff.Role != "CustomerService")
             {
                 OK = false;
             }
@@ -218,11 +218,11 @@ namespace Testing4
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 6;
+            Int32 StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the town property
-            if (AnStaff.Email != "FLtest@mail.com")
+            if (AnStaff.Email != "Sara94@hotmail.com")
             {
                 OK = false;
             }
@@ -239,11 +239,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int StaffId = 6;
+            int StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the DateOfBirth property
-            if (AnStaff.DoB != Convert.ToDateTime("12/05/2024"))
+            if (AnStaff.DoB != Convert.ToDateTime("03/02/1994"))
             {
                 OK = false;
             }
@@ -260,7 +260,7 @@ namespace Testing4
             //create Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 6;
+            Int32 StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the active property
@@ -796,7 +796,7 @@ namespace Testing4
             //invoke the method
             Error = AnStaff.Valid(FirstName, LastName, Email, Role, DoB);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -817,7 +817,7 @@ namespace Testing4
             //invoke the method
             Error = AnStaff.Valid(FirstName, LastName, Email, Role, DoB);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -857,7 +857,7 @@ namespace Testing4
             //invoke the method
             Error = AnStaff.Valid(FirstName, LastName, Email, Role, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]

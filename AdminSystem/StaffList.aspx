@@ -11,7 +11,18 @@
         <div>
             <asp:ListBox ID="lstStaffList" runat="server" Height="419px" Width="487px"></asp:ListBox>
         </div>
-        <asp:ListBox ID="lstSofaList" runat="server" style="z-index: 1; left: 10px; top: 34px; position: absolute; height: 364px; width: 620px"></asp:ListBox>
+        <p>
+            <asp:Button ID="btnAdd" runat="server" Height="36px" OnClick="btnAdd_Click" Text="Add" Width="69px" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnEdit" runat="server" Height="34px" OnClick="btnEdit_Click" style="margin-left: 0px" Text="Edit" Width="64px" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnDelete" runat="server" Height="34px" OnClick="btnDelete_Click" Text="Delete" />
+        </p>
+        <p>
+            <asp:Label ID="lblError" runat="server" ClientIDMode="AutoID"></asp:Label>
+        </p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

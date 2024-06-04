@@ -46,7 +46,7 @@ namespace Testing4
             Assert.AreEqual(AllStaff.StaffList, TestList);
         }
         [TestMethod]
-        public void ThisCustomerPropertyOK()
+        public void ThisStaffPropertyOK()
         {
             //create an instance of the class we want to create
             clsStaffCollection AllStaff = new clsStaffCollection();
@@ -91,6 +91,126 @@ namespace Testing4
             AllStaff.StaffList = TestList;
             //test to see that the two values are the same
             Assert.AreEqual(AllStaff.Count, TestList.Count);
+        }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of test data
+            clsStaff TestItem = new clsStaff();
+            //vairable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Active = true;
+            TestItem.StaffId = 1;
+            TestItem.FirstName = "Test";
+            TestItem.LastName = "Man";
+            TestItem.Email = "TestMan@gmail.com";
+            TestItem.Role = "Service";
+            TestItem.DoB = DateTime.Parse("01/01/2020");
+            //set ThisCustomer to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key of the test data
+            TestItem.StaffId = PrimaryKey;
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of test data
+            clsStaff TestItem = new clsStaff();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Active = true;
+            TestItem.StaffId = 1;
+            TestItem.FirstName = "Test";
+            TestItem.LastName = "Man";
+            TestItem.Email = "TestMan@gmail.com";
+            TestItem.Role = "Service";
+            TestItem.DoB = DateTime.Parse("01/01/2020");
+            //set ThisCustomer to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key of the test data
+            TestItem.StaffId = PrimaryKey;
+            //modify the test record
+            TestItem.Active = false;
+            TestItem.StaffId = 3;
+            TestItem.FirstName = "Update";
+            TestItem.LastName = "Test";
+            TestItem.Email = "UpdateTest@gmail.com";
+            TestItem.Role = "UpdateService";
+            TestItem.DoB = DateTime.Now.Date;
+            //set the record based on the new test data
+            AllStaff.ThisStaff = TestItem;
+            //update the record
+            AllStaff.Update();
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see if ThisStaff matches the test data
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of test data
+            clsStaff TestItem = new clsStaff();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Active = true;
+            TestItem.StaffId = 7;
+            TestItem.FirstName = "Test";
+            TestItem.LastName = "Man";
+            TestItem.Email = "TestMan@gmail.com";
+            TestItem.Role = "Service";
+            TestItem.DoB = DateTime.Parse("01/01/2020");
+
+            //set ThisCustomer to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key of the test data
+            TestItem.StaffId = PrimaryKey;
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //delete the record
+            AllStaff.Delete();
+            //now find the record
+            Boolean Found = AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void ReportByLastNameMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply a blank string (should return all record)
+            FilteredStaff.ReportByLastName("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
+        }
+        [TestMethod]
+        public void ReportByLastNameNoneFound()
+        {
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            FilteredStaff.ReportByLastName("xxxxxx");
+            Assert.AreEqual(0,FilteredStaff.Count);
         }
     }
 }

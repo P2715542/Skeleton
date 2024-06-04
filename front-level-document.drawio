@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" modified="2024-05-29T20:59:23.256Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0" etag="Eo4QbDGeoOqFJIVy0FnW" version="24.4.10" type="device">
+  <diagram name="Page-1" id="ASDMWSOK3K_1ErChNFXQ">
+    <mxGraphModel dx="691" dy="1233" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-28" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="Ni_Z8ib3QvlwMLxhw5OR-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="285" y="185" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-29" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="Ni_Z8ib3QvlwMLxhw5OR-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="208" y="178" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-30" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="Ni_Z8ib3QvlwMLxhw5OR-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="117" y="191" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-1" value="ADMIN" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="193" y="-7" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-3" value="ADD&lt;div&gt;STAFF&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="74" y="196" width="84.5" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-24" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Use Case Diagram For Staff Management&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="30" y="-48" width="356" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-25" value="DELETE&lt;div&gt;STAFF&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="158.5" y="196" width="84.5" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="Ni_Z8ib3QvlwMLxhw5OR-26" value="&lt;div&gt;FIND&lt;/div&gt;&lt;div&gt;STAFF&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="243" y="196" width="84.5" height="75" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
