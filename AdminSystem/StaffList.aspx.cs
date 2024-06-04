@@ -23,7 +23,7 @@ public partial class _1_List : System.Web.UI.Page
         }
         clsStaffUser AnUser = new clsStaffUser();
         AnUser = (clsStaffUser)Session["AnUser"];
-        Response.Write("Logged in as: " + AnUser.UserName);
+        lblsesh.Text = "Logged in as: " + AnUser.UserName;
     }
 
     void DisplayStaff()
@@ -96,4 +96,10 @@ public partial class _1_List : System.Web.UI.Page
         lstStaffList.DataTextField = "Email";
         lstStaffList.DataBind();
     }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
 }
