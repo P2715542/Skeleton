@@ -226,13 +226,13 @@ namespace ClassLibrary
                 if (Convert.ToInt32(StaffId) < 1)
                 {
                     //record the error
-                    Error = Error + "The customer id may not be less than one : ";
+                    Error = Error + "The staff id may not be less than one : ";
                 }
                 // if staff id is greater than max integer value
                 if (Convert.ToInt32(StaffId) > 2147483647)
                 {
                     //record the error
-                    Error = Error + "The customer id may not be greater than 2,147,483,647 : ";
+                    Error = Error + "The staff id may not be greater than 2,147,483,647 : ";
                 }
             }
             catch
