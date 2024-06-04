@@ -21,9 +21,9 @@
             <asp:TextBox ID="txtEnteredColour" runat="server" style="z-index: 1; left: 200px; top: 447px; position: absolute; width: 224px"></asp:TextBox>
         </p>
         <p style="margin-left: 640px">
-            <asp:Button ID="BtnApplyFilter" runat="server" OnClick="BtnApplyFilter_Click" style="z-index: 1; left: 22px; top: 495px; position: absolute; margin-bottom: 11px" Text="Apply Filter" />
-            <asp:Button ID="BtnClearFilter" runat="server" OnClick="BtnClearFilter_Click" style="z-index: 1; left: 194px; top: 495px; position: absolute" Text="Clear Filter" />
-            <asp:Button ID="BtnReturn" runat="server" OnClick="BtnReturn_Click1" style="z-index: 1; left: 438px; top: 498px; position: absolute" Text="Return to Main Menu" />
+            <asp:Button ID="BtnApplyFilter" runat="server" OnClick="BtnApplyFilter_Click" style="z-index: 1; left: 22px; top: 490px; position: absolute; margin-bottom: 11px" Text="Apply Filter" />
+            <asp:Button ID="BtnClearFilter" runat="server" OnClick="BtnClearFilter_Click" style="z-index: 1; left: 194px; top: 490px; position: absolute" Text="Clear Filter" />
+            <asp:Button ID="BtnReturn" runat="server" OnClick="BtnReturn_Click1" style="z-index: 1; left: 344px; top: 490px; position: absolute" Text="Return to Main Menu" />
         </p>
         <p>
             &nbsp;</p>

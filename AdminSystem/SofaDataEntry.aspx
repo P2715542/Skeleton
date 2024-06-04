@@ -44,7 +44,7 @@
         <p style="margin-left: 480px">
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 3px; top: 437px; position: absolute; height: 20px; width: 986px; right: 521px"></asp:Label>
             <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 245px; top: 456px; position: absolute; margin-bottom: 80px" Text="Cancel" OnClick="btnCancel_Click" />
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 159px; top: 456px; position: absolute; width: 58px" Text="OK" />
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 159px; top: 456px; position: absolute; " Text="OK" />
             <asp:Button ID="BtnReturn" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 339px; top: 456px; position: absolute" Text="Return to Main Menu" />
         </p>
         <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 135px; top: 382px; position: absolute" Text="Available" />
