@@ -39,7 +39,6 @@
      </div>
         <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" Text="Yes" CssClass="btn btn-primary btn-block" />
         <asp:Button ID="btnNo" runat="server" OnClick="btnNo_Click" Text="No" CssClass="btn btn-secondary btn-block" />
-
     </form>
 </body>
 </html>
