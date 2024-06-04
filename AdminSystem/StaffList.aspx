@@ -19,10 +19,22 @@
             <asp:Button ID="btnDelete" runat="server" Height="34px" OnClick="btnDelete_Click" Text="Delete" />
         </p>
         <p>
-            <asp:Label ID="lblError" runat="server" ClientIDMode="AutoID"></asp:Label>
+            &nbsp;</p>
+        <p>
+            <asp:Label ID="lblFindLN" runat="server" Text="Enter a Last Name"></asp:Label>
+&nbsp;
+            <asp:TextBox ID="txtLN" runat="server" Height="16px" Width="150px"></asp:TextBox>
+        </p>
+        <p style="margin-left: 40px">
+            <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply Filter" />
+&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear Filter" />
         </p>
         <p>
             &nbsp;</p>
+        <p>
+            <asp:Label ID="lblError" runat="server" ClientIDMode="AutoID"></asp:Label>
+        </p>
     </form>
 </body>
 </html>

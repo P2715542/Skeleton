@@ -73,4 +73,25 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to delete";
         }
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        clsStaffCollection AnStaff = new clsStaffCollection();
+        AnStaff.ReportByLastName(txtLN.Text);
+        lstStaffList.DataSource = AnStaff.StaffList;
+        lstStaffList.DataValueField = "StaffId";
+        lstStaffList.DataTextField = "LastName";
+        lstStaffList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsStaffCollection AnStaff = new clsStaffCollection();
+        AnStaff.ReportByLastName("");
+        txtLN.Text = "";
+        lstStaffList.DataSource = AnStaff.StaffList;
+        lstStaffList.DataValueField = "StaffId";
+        lstStaffList.DataTextField = "Email";
+        lstStaffList.DataBind();
+    }
 }

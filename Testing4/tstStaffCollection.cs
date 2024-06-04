@@ -212,5 +212,35 @@ namespace Testing4
             FilteredStaff.ReportByLastName("xxxxxx");
             Assert.AreEqual(0,FilteredStaff.Count);
         }
+        [TestMethod]
+        public void ReportByLastNameTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //variable to store the outcome
+            Boolean OK = true;
+            //apply a last name that doesn't exist
+            FilteredStaff.ReportByLastName("Nowazka");
+            //check that the correct number of records are found
+            if (FilteredStaff.Count == 2)
+            {
+                //check to see that the first record is 25
+                if (FilteredStaff.StaffList[0].StaffId != 7425)
+                {
+                    OK = false;
+                }
+                //check to see that the first record is 26
+                if (FilteredStaff.StaffList[1].StaffId != 26)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
     }
 }
