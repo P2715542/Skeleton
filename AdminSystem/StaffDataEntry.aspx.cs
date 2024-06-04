@@ -104,4 +104,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
             boxActive.Checked = AnStaff.Active;
         }
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffList.aspx");
+    }
 }

@@ -48,7 +48,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:CheckBox ID="boxActive" runat="server" style="z-index: 1; left: 154px; top: 271px; position: absolute" Text="Active" />
             <br />
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 194px; top: 348px; position: absolute; height: 29px; margin-top: 0px;" Text="CANCEL" width="75px" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 194px; top: 348px; position: absolute; height: 29px; margin-top: 0px;" Text="CANCEL" width="75px" OnClick="btnCancel_Click" />
             <br />
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 65px; top: 347px; position: absolute; width: 75px; height: 29px" Text="SAVE" />
         </div>

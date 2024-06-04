@@ -154,7 +154,7 @@ namespace ClassLibrary
             if (firstName.Length == 0)
             {
                 //record the error
-                Error = Error + "The First Name may not be blank. ";
+                Error = Error + "The First Name may not be BLANK. ";
             }
             //if the first name is greater than 50 characters
             if (firstName.Length > 50)
@@ -166,7 +166,7 @@ namespace ClassLibrary
             if (lastName.Length == 0)
             {
                 //record the error
-                Error = Error + "The last name may not be blank. ";
+                Error = Error + "The last name may not be BLANK. ";
             }
             //if the last name is too long
             if (lastName.Length > 50)
@@ -178,7 +178,7 @@ namespace ClassLibrary
             if (email.Length == 0)
             {
                 //record the error
-                Error = Error + "The email may not be blank. ";
+                Error = Error + "The email may not be BLANK. ";
             }
             //if the email is greater than 100 characters
             if (email.Length > 100)
@@ -190,7 +190,7 @@ namespace ClassLibrary
             if (role.Length == 0)
             {
                 //record the error
-                Error = Error + "The role may not be blank. ";
+                Error = Error + "The role may not be BLANK. ";
             }
             //if the role is greater than 100 characters
             if (role.Length > 50)
