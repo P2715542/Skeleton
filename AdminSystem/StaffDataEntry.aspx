@@ -1,58 +1,89 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffDataEntry.aspx.cs" Inherits="_1_DataEntry" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Staff Data Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #form1 {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-buttons asp:Button {
+            width: 48%;
+        }
+    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div style="height: 289px">
-            <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 10px; top: 15px; position: absolute; right: 474px; width: 68px;" Text="Staff ID"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 119px; top: 19px; position: absolute; width: 249px" height="22px"></asp:TextBox>
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" Width="61px" />
-            <br />
-            <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 10px; top: 53px; position: absolute; width: 87px;" Text="First Name"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 117px; top: 54px; position: absolute; width: 249px; margin-top: 0px" height="22px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="lblLastName" runat="server" style="z-index: 1; left: 10px; top: 91px; position: absolute; right: 522px; width: 86px;" Text="Last Name"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; top: 91px; position: absolute; left: 117px; width: 249px" height="22px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="lblEmail" runat="server" style="z-index: 1; left: 10px; top: 129px; position: absolute" Text="Email" width="68px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <br />
-            <br />
-            <asp:Label ID="lblDoB" runat="server" style="z-index: 1; left: 10px; top: 167px; position: absolute" Text="DoB" width="68px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtEmail" runat="server" style="z-index: 1; left: 117px; top: 129px; position: absolute; width: 249px" height="22px"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtDoB" runat="server" style="z-index: 1; left: 115px; top: 167px; position: absolute; width: 249px" height="22px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="lblRole" runat="server" style="z-index: 1; left: 10px; top: 205px; position: absolute" Text="Role" width="68px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <br />
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtRole" runat="server" style="z-index: 1; top: 205px; position: absolute; left: 114px; width: 249px" height="22px"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:CheckBox ID="boxActive" runat="server" style="z-index: 1; left: 154px; top: 271px; position: absolute" Text="Active" />
-            <br />
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 194px; top: 348px; position: absolute; height: 29px; margin-top: 0px;" Text="CANCEL" width="75px" OnClick="btnCancel_Click" />
-            <br />
-            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 65px; top: 347px; position: absolute; width: 75px; height: 29px" Text="SAVE" />
+    <body>
+    <form id="form2" runat="server">
+        <div class="form-group">
+            <label for="txtStaffId" class="form-label">Staff ID</label>
+            <asp:TextBox ID="txtStaffId" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-        <asp:Label ID="lblError" runat="server"></asp:Label>
+        <div class="form-group">
+            <label for="txtFirstName" class="form-label">First Name</label>
+            <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label for="txtLastName" class="form-label">Last Name</label>
+            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label for="txtEmail" class="form-label">Email</label>
+            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label for="txtDoB" class="form-label">Date of Birth</label>
+            <asp:TextBox ID="txtDoB" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label for="txtRole" class="form-label">Role</label>
+            <asp:TextBox ID="txtRole" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <asp:CheckBox ID="boxActive" runat="server" CssClass="form-control" Text="Active" />
+        </div>
+        <div class="form-buttons">
+            <asp:Button ID="btnSubmit" runat="server" CssClass="form-control" OnClick="btnOK_Click" Text="Submit" />
+            <asp:Button ID="btnClear" runat="server" CssClass="form-control" OnClick="btnCancel_Click" Text="Cancel" />
+            <asp:Button ID="btnFind" runat="server" CssClass="form-control" OnClick="btnFind_Click" Text="Find" />
+
+        </div>
+                <asp:Label ID="lblError" runat="server" CssClass="error"></asp:Label>
+
     </form>
 </body>
 </html>
+
+
+

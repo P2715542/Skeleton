@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClassLibrary;
 
-public partial class _1_ConfirmDelete : System.Web.UI.Page
+public partial class ConfirmDelete : System.Web.UI.Page
 {
     Int32 StaffId;
     protected void Page_Load(object sender, EventArgs e)

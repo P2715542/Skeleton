@@ -36,7 +36,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStaff AnStaff = new clsStaff();
-        Int32 StaffId = Convert.ToInt32(txtStaffId.Text);
+        //Int32 StaffId = Convert.ToInt32(txtStaffId.Text);
         string FirstName = txtFirstName.Text;
         string LastName = txtLastName.Text;
         string Email = txtEmail.Text;

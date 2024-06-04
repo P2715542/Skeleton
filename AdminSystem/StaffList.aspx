@@ -1,40 +1,76 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffList.aspx.cs" Inherits="_1_List" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Staff List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #form1 {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        #form1 div, #form1 p {
+            margin-bottom: 15px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-buttons asp:Button {
+            width: 48%;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ListBox ID="lstStaffList" runat="server" Height="419px" Width="487px"></asp:ListBox>
+            <asp:ListBox ID="lstStaffList" runat="server" CssClass="form-control" Height="200px"></asp:ListBox>
         </div>
-        <p>
-            <asp:Button ID="btnAdd" runat="server" Height="36px" OnClick="btnAdd_Click" Text="Add" Width="69px" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnEdit" runat="server" Height="34px" OnClick="btnEdit_Click" style="margin-left: 0px" Text="Edit" Width="64px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnDelete" runat="server" Height="34px" OnClick="btnDelete_Click" Text="Delete" />
-        </p>
-        <p>
-            &nbsp;</p>
-        <p>
-            <asp:Label ID="lblFindLN" runat="server" Text="Enter a Last Name"></asp:Label>
-&nbsp;
-            <asp:TextBox ID="txtLN" runat="server" Height="16px" Width="150px"></asp:TextBox>
-        </p>
-        <p style="margin-left: 40px">
-            <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply Filter" />
-&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear Filter" />
-        </p>
-        <p>
-            &nbsp;</p>
-        <p>
-            <asp:Label ID="lblError" runat="server" ClientIDMode="AutoID"></asp:Label>
-        </p>
+        <div class="form-buttons">
+            <asp:Button ID="btnAdd" runat="server" CssClass="form-control" OnClick="btnAdd_Click" Text="Add" />
+            <asp:Button ID="btnEdit" runat="server" CssClass="form-control" OnClick="btnEdit_Click" Text="Edit" />
+            <asp:Button ID="btnDelete" runat="server" CssClass="form-control" OnClick="btnDelete_Click" Text="Delete" />
+        </div>
+        <div>
+            <label for="txtLN" class="form-label">Enter a Last Name</label>
+            <asp:TextBox ID="txtLN" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="form-buttons">
+            <asp:Button ID="btnApply" runat="server" CssClass="form-control" OnClick="btnApply_Click" Text="Apply Filter" />
+            <asp:Button ID="btnClear" runat="server" CssClass="form-control" OnClick="btnClear_Click" Text="Clear Filter" />
+        </div>
+        <asp:Label ID="lblError" runat="server" CssClass="error"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="lblError0" runat="server" CssClass="error"></asp:Label>
     </form>
 </body>
 </html>
