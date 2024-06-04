@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Staff Login</title>
+    <title>Staff Management Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
         body {
@@ -50,7 +50,7 @@
             <asp:TextBox ID="txtPW" runat="server" CssClass="form-control" TextMode="Password" placeholder="Enter password" />
         </div>
         <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" CssClass="btn btn-primary btn-block" />
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-secondary btn-block" />
+        <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel"  CssClass="btn btn-secondary btn-block" />
         <asp:Label ID="lblError" runat="server"></asp:Label>
     </form>
 </body>

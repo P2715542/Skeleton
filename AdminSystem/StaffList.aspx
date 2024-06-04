@@ -50,7 +50,8 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="Form1" runat="server" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Staff List</h1>
         <div>
             <asp:ListBox ID="lstStaffList" runat="server" CssClass="form-control" Height="200px"></asp:ListBox>
         </div>
@@ -67,10 +68,16 @@
             <asp:Button ID="btnApply" runat="server" CssClass="form-control" OnClick="btnApply_Click" Text="Apply Filter" />
             <asp:Button ID="btnClear" runat="server" CssClass="form-control" OnClick="btnClear_Click" Text="Clear Filter" />
         </div>
-        <asp:Label ID="lblError" runat="server" CssClass="error"></asp:Label>
+        <div class="form-buttons">
+            <asp:Button ID="btnBack" runat="server" CssClass="form-control" OnClick="btnBack_Click" Text="Back to Main Menu"/>
+       </div>
+<div>
+            <label ID="lblsesh" class="form-label">
+            <asp:Label ID="lblsesh" runat="server"></asp:Label>
+            </label>
+            </div>
+            <asp:Label ID="lblError" runat="server" CssClass="error"></asp:Label>
         <br />
-        <br />
-        <asp:Label ID="lblError0" runat="server" CssClass="error"></asp:Label>
     </form>
 </body>
 </html>
