@@ -13,7 +13,7 @@
         <p>
             &nbsp;</p>
         <p>
-            &nbsp;</p>
+            &nbsp;Sofa Login Page</p>
         <p>
             <asp:TextBox ID="txtUsername" runat="server" height="22px" style="z-index: 1; left: 170px; top: 187px; position: absolute; width: 198px"></asp:TextBox>
         </p>
