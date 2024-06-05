@@ -145,4 +145,5 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //redirect to the customer list
         Response.Redirect("CustomerList.aspx");
     }
+
 }
