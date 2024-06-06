@@ -888,12 +888,13 @@ namespace Testing4
             clsStaff AnStaff = new clsStaff();
             //string variables to store any error message
             String Error = "";
-            //set the AccountCreated to a non date value
-            string DoB = "this is not a date!";
+            //set the DoB to a non date value
+            string DoB = "This is not Valid a date!";
             //invoke the method
             Error = AnStaff.Valid(FirstName, LastName, Email, Role, DoB);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
+
         }
 
     }
