@@ -7,15 +7,10 @@
     <title>Customer Data Entry Form</title>
 
     <style>
-        html {
-            height: 100%;
-            width: 100%;
-        }
-
         body {
             margin: 0px;
             padding: 0px;
-            height: 100%;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -42,11 +37,11 @@
             flex-direction: column;
             width: 80%;
             height: auto;
-            margin: auto;
             margin: 5px;
-            padding: 20px;
+            padding: 15px;
             background-color: rgb(225, 226, 230);
             color: black;
+            border: 1px solid black;
         }
 
         .input-details {
@@ -61,7 +56,7 @@
             .input-details input {
                 width: 100%;
                 padding: 10px;
-                border: 1px solid silver;
+                border: 2px solid silver;
                 border-radius: 3px;
                 box-sizing: border-box;
                 display: block;
@@ -71,11 +66,13 @@
         #lblError, .error {
             height: auto;
             width: auto;
-            margin: 10px;
+            margin-top: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
+            margin-bottom: 10px;
+            color: red;
         }
 
         #customerIDBox {
@@ -83,9 +80,9 @@
         }
 
         #btnFind {
-            position: absolute;
-            top: 216px;
-            right: 465px;
+            /*position: absolute;*/
+            /* top: 116px; */
+            /* right: 350px; */
             height: 31px;
             width: 97px;
             font-size: 18px;
@@ -94,14 +91,24 @@
             color: white;
             border: 2px solid black;
             border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2px;
+            margin-top: 5px;
+        }
+        
+        #btnFind:hover {
+            background-color: darkred;
+            color: white;
         }
 
         .buttons {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            margin-bottom: 15px
         }
 
         #btnMainMenu {
@@ -126,12 +133,22 @@
             border-radius: 50px;
         }
 
+        #btnOK:hover, #btnCancel:hover, #btnMainMenu:hover {
+            background-color: darkred;
+            color: white;
+        }
+
         .checkbox {
-            margin-bottom: 20px;
             font-size: 18px;
-            display: inline;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
             border: 1px solid silver;
             padding: 6px;
+        }
+
+        #chkActive {
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -139,42 +156,44 @@
 <body>
 
     <div class="form-container">
-        <h1>Customer Data Entry Form</h1>
-
         <form class="main-form" id="frmCustomerDataEntry" runat="server">
             <div class="input-details" id="customerIDBox">
-                <asp:Label ID="lblCustomerID" runat="server" Text="Customer ID"></asp:Label>
+                <label id="lblCustomerID" runat="server" for="txtCustomerID">Customer ID</label>
                 <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
-            </div>
-            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
-
-            <div class="input-details">
-                <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
-                <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
             </div>
 
             <div class="input-details">
-                <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
-                <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                <label id="lblFirstName" runat="server" for="txtFirstName">First Name</label>
+                <asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter your first name..."></asp:TextBox>
             </div>
 
             <div class="input-details">
-                <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
-                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                <label id="lblLastName" runat="server" for="txtLastName">Last Name</label>
+                <asp:TextBox ID="txtLastName" runat="server" placeholder="Enter your last name..."></asp:TextBox>
             </div>
 
             <div class="input-details">
-                <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-                <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                <label id="lblEmail" runat="server" for="txtEmail">Email</label>
+                <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter your email..."></asp:TextBox>
             </div>
 
             <div class="input-details">
-                <asp:Label ID="lblAccountCreated" runat="server" Text="Account Created"></asp:Label>
-                <asp:TextBox ID="txtAccountCreated" runat="server"></asp:TextBox>
+                <label id="lblPassword" runat="server" for="txtPassword">Password</label>
+                <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter your password..."></asp:TextBox>
+            </div>
+
+            <div class="input-details">
+                <label id="lblAccountCreated" runat="server" for="txtAccountCreated">Account Created</label>
+                <asp:TextBox ID="txtAccountCreated" runat="server" placeholder="Enter the date your account was created..."></asp:TextBox>
             </div>
 
             <div class="checkbox">
                 <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
+            </div>
+
+            <div class="error">
+                <asp:Label ID="lblError" runat="server"></asp:Label>
             </div>
 
             <div class="buttons">
@@ -183,14 +202,9 @@
                 <asp:Button ID="btnMainMenu" runat="server" Text="Return to Main Menu" OnClick="btnMainMenu_Click" />
             </div>
 
-            <div class="error">
-                <asp:Label ID="lblError" runat="server"></asp:Label>
-            </div>
-
         </form>
 
     </div>
-
 
 </body>
 

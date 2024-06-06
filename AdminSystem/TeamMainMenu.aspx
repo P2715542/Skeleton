@@ -24,6 +24,7 @@
         }
         .form-label {
             font-weight: bold;
+            font-size: 26px;
         }
         .btn-primary {
             width: 800%;

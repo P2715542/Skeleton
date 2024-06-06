@@ -7,15 +7,10 @@
     <title>Customer Login (Staff)</title>
 
     <style>
-        html {
-            height: 100%;
-            width: 100%;
-        }
-
         body {
             margin: 0px;
             padding: 0px;
-            height: 100%;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -34,6 +29,7 @@
             padding: 20px;
             background-color: rgb(225, 226, 230);
             color: black;
+            border: 1px solid black;
         }
 
         .main-form {
@@ -61,7 +57,7 @@
             .input-details input {
                 width: 100%;
                 padding: 10px;
-                border: 1px solid silver;
+                border: 2px solid silver;
                 border-radius: 3px;
                 box-sizing: border-box;
                 display: block;
@@ -71,9 +67,9 @@
         .buttons {
             display: flex;
             align-items: center;
-            justify-content: space-around;
-            margin-top: 40px;
-            margin-bottom: 40px;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         #btnLogin, #btnCancel {
@@ -87,6 +83,11 @@
             border-radius: 50px;
         }
 
+        #btnLogin:hover, #btnCancel:hover {
+            background-color: darkred;
+            color: white;
+        }
+
         #lblError, .error {
             height: auto;
             width: auto;
@@ -95,6 +96,7 @@
             align-items: center;
             justify-content: center;
             font-size: 16px;
+            color: red;
         }
     </style>
 </head>
@@ -102,26 +104,26 @@
 <body>
 
     <div class="form-container">
-        <h1>Customer Data Entry Form</h1>
+        <h1>Customer Login</h1>
         <form class="main-form" id="frmCustomerLogin" runat="server">
 
             <div class="input-details">
-                <asp:Label ID="lblUserName" runat="server" Text="UserName"></asp:Label>
-                <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                <label id="lblUserName" runat="server" for="txtUserName">UserName</label>
+                <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter your username..."></asp:TextBox>
             </div>
 
             <div class="input-details">
-                <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <label id="lblPassword" runat="server" for="txtPassword">Password</label>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Enter your password..."></asp:TextBox>
+            </div>
+
+            <div class="error">
+                <asp:Label ID="lblError" runat="server" ForeColor="#FF3300"></asp:Label>
             </div>
 
             <div class="buttons">
                 <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
-            </div>
-
-            <div class="error">
-                <asp:Label ID="lblError" runat="server" ForeColor="#FF3300"></asp:Label>
             </div>
 
         </form>
