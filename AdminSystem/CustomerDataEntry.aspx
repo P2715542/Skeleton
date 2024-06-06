@@ -19,6 +19,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: arial;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            margin-top: 15px;
+            text-align: center;
+            color: black;
         }
 
         .main-form {
@@ -32,46 +41,41 @@
             align-items: center;
             flex-direction: column;
             width: 80%;
-            height: 90%;
+            height: auto;
             margin: auto;
             margin: 5px;
             padding: 20px;
             background-color: rgb(225, 226, 230);
+            color: black;
         }
 
         .input-details {
             margin-bottom: 20px;
-            font-size: 20px;
+            font-size: 18px;
         }
 
             .input-details label {
                 display: block;
             }
 
-            .input-details input, .input-details TextBox {
+            .input-details input {
                 width: 100%;
                 padding: 10px;
                 border: 1px solid silver;
                 border-radius: 3px;
                 box-sizing: border-box;
                 display: block;
+                font-size: 16px;
             }
 
         #lblError, .error {
-            height: fit-content;
-            width: fit-content;
+            height: auto;
+            width: auto;
             margin: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        h1 {
-            font-size: 26px;
-            margin-bottom: 15px;
-            margin-top: 15px;
-            text-align: center;
-            color: black;
+            font-size: 16px;
         }
 
         #customerIDBox {
@@ -80,28 +84,64 @@
 
         #btnFind {
             position: absolute;
-            top: 236px;
+            top: 216px;
             right: 465px;
             height: 31px;
             width: 97px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: 2px solid black;
+            border-radius: 50px;
         }
 
         .buttons {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        #btnMainMenu {
+            height: 35px;
+            width: 200px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: 2px solid black;
+            border-radius: 50px;
+        }
+
+        #btnOK, #btnCancel {
+            height: 35px;
+            width: 97px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: 2px solid black;
+            border-radius: 50px;
+        }
+
+        .checkbox {
+            margin-bottom: 20px;
+            font-size: 18px;
+            display: inline;
+            border: 1px solid silver;
+            padding: 6px;
         }
     </style>
 </head>
-
 
 <body>
 
     <div class="form-container">
         <h1>Customer Data Entry Form</h1>
 
-        <form class="main-form" id="frmCustomer" runat="server">
+        <form class="main-form" id="frmCustomerDataEntry" runat="server">
             <div class="input-details" id="customerIDBox">
                 <asp:Label ID="lblCustomerID" runat="server" Text="Customer ID"></asp:Label>
                 <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
@@ -133,7 +173,9 @@
                 <asp:TextBox ID="txtAccountCreated" runat="server"></asp:TextBox>
             </div>
 
-            <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
+            <div class="checkbox">
+                <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
+            </div>
 
             <div class="buttons">
                 <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" />
@@ -148,7 +190,6 @@
         </form>
 
     </div>
-
 
 
 </body>
