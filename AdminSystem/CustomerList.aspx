@@ -18,6 +18,7 @@
         }
 
         .form-container {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -137,8 +138,6 @@
 
 <body>
     <div class="form-container">
-        
-
         <div class="labels">
             <asp:Label ID="lblLoggedIn" runat="server"></asp:Label>
         </div>

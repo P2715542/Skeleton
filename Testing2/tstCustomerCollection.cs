@@ -225,7 +225,7 @@ namespace Testing2
                     OK = false;
                 }
                 //check to see that the first record is 26
-                if (FilteredCustomers.CustomerList[1].CustomerID != 75)
+                if (FilteredCustomers.CustomerList[1].CustomerID != 1271)
                 {
                     OK = false;
                 }

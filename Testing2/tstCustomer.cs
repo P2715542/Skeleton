@@ -678,7 +678,7 @@ namespace Testing2
             String Error = "";
             //create some test data to pass to the method
             string Email = "";
-            Email = Email.PadRight(500, 'a'); //this should fail
+            Email = Email.PadRight(1000, 'a'); //this should fail
             //invoke the method
             Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
             //test to see that the result is correct
@@ -695,6 +695,7 @@ namespace Testing2
             String Error = "";
             //this should fail
             string Password = "";
+            Password = Password.PadRight(6, 'a');
             //invoke the method
             Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
             //test to see that the result is correct
@@ -709,7 +710,8 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string Password = "a";
+            string Password = "";
+            Password = Password.PadRight(7, 'a');
             //invoke the method
             Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
             //test to see that the result is correct
@@ -724,7 +726,8 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string Password = "aa";
+            string Password = "";
+            Password = Password.PadRight(8, 'a');
             //invoke the method
             Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
             //test to see that the result is correct
@@ -788,7 +791,7 @@ namespace Testing2
             String Error = "";
             //this should pass
             string Password = "";
-            Password = Password.PadRight(25, 'a');
+            Password = Password.PadRight(22, 'a');
             //invoke the method
             Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
             //test to see that the result is correct
@@ -822,7 +825,7 @@ namespace Testing2
             //create a variable to store the test date data
             DateTime TestDate;
             //set the data to todays date
-            TestDate = DateTime.Parse("01/05/2024");
+            TestDate = DateTime.Now.Date;
             //change the data to whatever the date is less 200 years
             TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
@@ -882,7 +885,7 @@ namespace Testing2
             String Error = "";
             //create a variable to store the test date data
             DateTime TestDate;
-            //set the data to todays date
+            //set the data to may 1st
             TestDate = DateTime.Parse("01/05/2024");
             //change the data to whatever the date is less 100 years
             TestDate = TestDate.AddDays(+1);
@@ -895,6 +898,67 @@ namespace Testing2
         }
 
         [TestMethod]
+        public void AccountCreatedMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variables to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the data to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to yesterday's date
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to a string variable
+            string AccountCreated = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AccountCreatedMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variables to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the data to today's date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string AccountCreated = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AccountCreatedMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variables to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the data to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to tommorow's date
+            TestDate = TestDate.AddDays(+1);
+            //convert the date variable to a string variable
+            string AccountCreated = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void AccountCreatedExtremeMax()
         {
             //create an instance of the class we want to create
@@ -904,7 +968,7 @@ namespace Testing2
             //create a variable to store the test date data
             DateTime TestDate;
             //set the data to todays date
-            TestDate = DateTime.Parse("01/05/2024");
+            TestDate = DateTime.Now.Date;
             //change the date to whatever the date is plus 1 day
             TestDate = TestDate.AddYears(+100);
             //convert the date variable to a string variable
@@ -914,27 +978,6 @@ namespace Testing2
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-        /*        [TestMethod]
-                public void AccountCreatedExtremeMax()
-                {
-                    //create an instance of the class we want to create
-                    clsCustomer AnCustomer = new clsCustomer();
-                    //string variables to store any error message
-                    String Error = "";
-                    //create a variable to store the test date data
-                    DateTime TestDate;
-                    //set the data to todays date
-                    TestDate = DateTime.Parse("01/05/2024");
-                    //change the date to whatever the date is plus 1 day
-                    TestDate = TestDate.AddYears(+100);
-                    //convert the date variable to a string variable
-                    string AccountCreated = TestDate.ToString();
-                    //invoke the method
-                    Error = AnCustomer.Valid(FirstName, LastName, Email, Password, AccountCreated);
-                    //test to see that the result is correct
-                    Assert.AreNotEqual(Error, "");
-                }*/
 
         [TestMethod]
         public void AccountCreatedInvalidData()
