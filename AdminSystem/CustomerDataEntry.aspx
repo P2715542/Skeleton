@@ -31,6 +31,7 @@
         }
 
         .form-container {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -159,7 +160,7 @@
         <form class="main-form" id="frmCustomerDataEntry" runat="server">
             <div class="input-details" id="customerIDBox">
                 <label id="lblCustomerID" runat="server" for="txtCustomerID">Customer ID</label>
-                <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCustomerID" runat="server" placeholder="Enter a customer ID..."></asp:TextBox>
                 <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
             </div>
 

@@ -212,6 +212,11 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The password must be less than 50 characters : ";
             }
+            if (password.Length > 0 && password.Length < 7)
+            {
+                //record the error
+                Error = Error + "The password must be at least 7 characters long : ";
+            }
 
             //create an instance of DateTime to compare with DateTemp
             DateTime DateComp1 = DateTime.Parse("01/05/2024");
@@ -232,13 +237,18 @@ namespace ClassLibrary
                     //record the error
                     Error = Error + "The date cannot be in the future : ";
                 }
+                //if (CustomerID == -1)
+               // {
+                   // if (DateTemp != DateComp2) {
+                        //Error = Error + "Enter today's date for new accounts : ";
+                    //}
+               // }
             }
             catch
             {
                 //record the error
                 Error = Error + "The date was not a valid date : ";
             }
-
 
             //return any error messages
             return Error;

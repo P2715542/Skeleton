@@ -124,7 +124,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Found == true)
         {
             //display the values of the properties in the form
-            //txtCustomerID.Text = AnCustomer.CustomerID.ToString();
+            txtCustomerID.Text = AnCustomer.CustomerID.ToString();
             txtFirstName.Text = AnCustomer.FirstName;
             txtLastName.Text = AnCustomer.LastName;
             txtEmail.Text = AnCustomer.Email;
